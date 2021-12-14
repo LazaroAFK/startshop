@@ -10,10 +10,10 @@ class ruta{
     // Automatica
     public function __construct(){
         $url = $this -> getURL(); // Recibir un arreglo
-        echo "<script>console.log('".json_encode($url)."')</script>";
 
         if(file_exists(APPROOT . '/controllers/' . ucwords($url[0]) . '.php')){
             $this -> controladorActual = ucwords($url[0]);
+            echo "<script>console.log('".ucwords($url[0])."')</script>";
         }
 
         // Cargar el controlador, crear una instancia del controlador (Clase)
@@ -23,7 +23,6 @@ class ruta{
         
         // Limpiar memoria
         unset($url[0]);
-        echo "<script>console.log('".json_encode($url)."')</script>";
 
         // Validar el método, debe existir un método index en cada controlador
         if(isset($url[1])){
@@ -33,7 +32,6 @@ class ruta{
             // Limpiar memoria
             unset($url[1]);
         }
-        echo "<script>console.log('".json_encode($url)."')</script>";
 
         // Parámetros
         $this -> parametros = $url ? array_values($url) : [];
