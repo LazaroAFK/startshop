@@ -10,7 +10,7 @@ class ruta{
     // Automatica
     public function __construct(){
         $url = $this -> getURL(); // Recibir un arreglo
-        echo "<script>console.log('".json_encode($url)."')<script>";
+        echo "<script>console.log('".json_encode($url)."')</script>";
 
         if(file_exists(APPROOT . '/controllers/' . ucwords($url[0]) . '.php')){
             $this -> controladorActual = ucwords($url[0]);
