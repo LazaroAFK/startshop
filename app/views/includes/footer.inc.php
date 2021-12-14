@@ -3,10 +3,10 @@
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
     </footer>
-    <div id="yourElement"></div>
+    <!-- <div id="yourElement"></div> -->
     <script src="<?= URLROOT; ?>/js/jquery-3.6.0.min.js"></script>
     <script src="<?= URLROOT; ?>/js/bootstrap.min.js"></script>
-    <script src="<?= URLROOT; ?>/js/quagga.min.js"></script>
+    <!-- <script src="<?= URLROOT; ?>/js/quagga.min.js"></script>
     <script>
       Quagga.init({
         inputStream : {
@@ -61,6 +61,6 @@
           }, 600);
         }
       }
-    </script>
+    </script> -->
 </body>
 </html>
