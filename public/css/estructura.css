@@ -1,0 +1,64 @@
+/*modelo de caja, basado en la manipulación de márgenes bordes, rellenos, dimensiones,fondo*/
+div.contenedor{
+    width: 95%;
+    height: auto;
+    border:1px solid blue;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+div#contenedor nav {
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+padding: 1rem;
+background: white;
+margin: 0 auto;
+width: 98%;
+}
+
+
+div#contenedor nav ul.menu {
+list-style-type: none;
+margin: 0;
+padding:0;
+overflow: hidden;
+background:blue;
+}
+
+div#contenedor nav ul.menu li {
+float:left;
+}
+div#contenedor nav ul.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 16px;
+    text-align: center;
+    color: white;
+    
+}
+
+div#contenedor nav ul.menu li a:hover {
+    background:red;
+}
+
+.active{
+    background: black;
+}
+
+div#contenedor section {
+    margin: 10px auto;
+    width: 98%;
+    background: red;
+}
+
+div#contenedor section iframe {
+    width: 100%;
+}
+
+div#contenedor footer {
+    margin: 0 auto;
+    width:98%;
+    height: 30px;
+    padding: 10px 5 px;
+    background:green;
+    font-size: 20px;
+}

@@ -1,0 +1,51 @@
+body {
+background-color: beige;
+/*margin-top: 2000px;*/
+}
+.saludo{
+    color:  chartreuse;
+    font-size: 1.2em;
+}
+
+.texto{
+    color:darkblue
+}
+/* class*/
+p.saludos, h1.saludos{
+    color:  chartreuse;
+    font-size: 150%;
+}
+/*un espacio p .h esta contenido en*/
+
+
+/*SE BUSCA EL ID LISTA ejemplo span #lista significa que este contenido en una etiqueta span*/
+#lista { border:1px solid red;}
+
+/*importa un archivo incluso*/
+
+/* @import url('otro')
+
+@font-face {
+    font-family: ;
+    src: url();
+} */
+
+/* media queries
+@media (max-width: 600px){
+
+}*/
+
+
+/*PSEUDOCLASES: CAMBIAR AL CUMPLIR UNA CONDICIÓN, a:link significa que mientras se de click al link*/
+a:visited, a:link {color:purple}
+a:hover {color: red}
+
+/*PSEUDELEMNTOS: PERMITEN AÑADIR UN ESTILO A UNA PARTE */
+p::first-letter {
+    font-size: 2rem;
+}
+
+
+
+
+
