@@ -11,7 +11,7 @@ class base{
     // Seguridad ($_ENV variacles de ambiente)
     // variavles de operación para coneción y manejo de consultas (PDO)
 
-    private$dbh; // database hamdler
+    private $dbh; // database hamdler
     private $stmt; // statement
     private $error;
 
