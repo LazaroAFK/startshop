@@ -16,8 +16,6 @@ class ruta{
             $this -> controladorActual = ucwords($url[0]);
         }
 
-        unset($url[0]);
-
         // Cargar el controlador, crear una instancia del controlador (Clase)
         include_once(APPROOT . '/controllers/' . $this -> controladorActual . '.php');
 
@@ -25,6 +23,7 @@ class ruta{
         
         // Limpiar memoria
         unset($url[0]);
+        echo "<script>console.log('".json_encode($url)."')</script>";
 
         // Validar el método, debe existir un método index en cada controlador
         if(isset($url[1])){
@@ -34,6 +33,7 @@ class ruta{
             // Limpiar memoria
             unset($url[0]);
         }
+        echo "<script>console.log('".json_encode($url)."')</script>";
 
         // Parámetros
         $this -> parametros = $url ? array_values($url) : [];
