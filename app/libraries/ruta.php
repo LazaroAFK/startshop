@@ -15,6 +15,8 @@ class ruta{
             $this -> controladorActual = ucwords($url[0]);
         }
 
+        unset($url[0]);
+
         // Cargar el controlador, crear una instancia del controlador (Clase)
         include_once(APPROOT . '/controllers/' . $this -> controladorActual . '.php');
 
