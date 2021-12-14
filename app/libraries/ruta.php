@@ -31,7 +31,7 @@ class ruta{
                 $this -> metodoActual = $url[1];
             }
             // Limpiar memoria
-            unset($url[0]);
+            unset($url[1]);
         }
         echo "<script>console.log('".json_encode($url)."')</script>";
 
