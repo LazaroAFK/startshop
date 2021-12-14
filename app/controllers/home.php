@@ -7,10 +7,10 @@ class home extends controller{
         // TODO
     }
 
-    public function index()
+    public function index($nula = '')
     {
         $data = [
-            'bienvenida' => 'Bienvenido/a'
+            'bienvenida' => $nula
         ];
         $this -> view('index', $data);
     }
