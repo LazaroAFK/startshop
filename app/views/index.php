@@ -28,8 +28,12 @@ include_once(APPROOT . '/views/includes/header.inc.php');
   </div>
 </div>
 <div class="flex-none mb-10 flex gap-20 justify-center">
-    <canvas id="myChart1" width="400" height="400"></canvas>
-    <canvas id="myChart2" width="400" height="400"></canvas>
+    <div class="w-96 h-96 bg-red-300">
+        <canvas id="myChart1" width="400" height="400"></canvas>
+    </div>
+    <div class="w-96 h-96 bg-red-300">
+        <canvas id="myChart2" width="400" height="400"></canvas>
+    </div>
 </div>
 <div class="flex-none mb-10 flex gap-3">
   <div class="w-full h-96 bg-red-300"></div>
