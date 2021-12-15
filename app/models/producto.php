@@ -80,7 +80,7 @@ class producto{
         // Consulta
         $this -> db -> query('UPDATE productos SET nombre = :nombre, codigo = :codigo, precio = :precio, precio_proveedor = :precio_proveedor, id_proveedor = :id_proveedor, id_inventario = :id_inventario, imagen = :imagen WHERE id = :id');
         // Vinculación
-        $this -> db -> bind(':id', $id);
+        $this -> db -> bind(':id', $data['id']);
         $this -> db -> bind(':nombre', $data['nombre']);
         $this -> db -> bind(':precio', $data['precio']);
         $this -> db -> bind(':codigo', $data['codigo']);
