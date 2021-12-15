@@ -78,7 +78,7 @@ class producto{
 
     public function actualizar($id){
         // Consulta
-        $this -> db -> query('UPDATE productos SET nombre = :nombre, codigo = :codigo, precio = :precio, precio_proveedor = :precio_proveedor, id_proveedor = :id_proveedor, id_inventario = :id_inventario, imagen = :imagen FROM productos WHERE id = :id');
+        $this -> db -> query('UPDATE productos SET nombre = :nombre, codigo = :codigo, precio = :precio, precio_proveedor = :precio_proveedor, id_proveedor = :id_proveedor, id_inventario = :id_inventario, imagen = :imagen WHERE id = :id');
         // Vinculación
         $this -> db -> bind(':id', $id);
         $this -> db -> bind(':nombre', $data['nombre']);
