@@ -7,6 +7,7 @@
     <title><?= TITLE; ?></title>
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= URLROOT; ?>/css/all.min.css">
+    <script src="<?= URLROOT; ?>/js/tailwindcss.min.js"></script>
 </head>
 <body class="d-flex flex-column h-100 justify-content-center">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
