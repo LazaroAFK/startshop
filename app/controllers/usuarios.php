@@ -122,6 +122,7 @@ class usuarios extends controller{
         unset($_SESSION['usuario_id']);
         unset($_SESSION['usuario_nombre']);
         unset($_SESSION['usuario_email']);
+        unset($_SESSION['usuario_tipo']);
 
         redirigir('/usuarios/login');
     }

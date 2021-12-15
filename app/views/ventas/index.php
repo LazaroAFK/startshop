@@ -1,13 +1,17 @@
+<?php
+if(!estaLogueado()){
+    redirigir('/usuarios/login');
+}
+?>
 <!DOCTYPE html>
-<html lang="es" class="h-100">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= TITLE; ?></title>
-    <script src="<?= URLROOT; ?>/js/tailwindcss.min.js"></script>
+    <title>Ventas</title>
 </head>
-<body class="d-flex flex-column h-100 justify-content-center">
+<body>
 <div class="w-screen h-screen bg-gradient-to-b from-white to-gray-50 flex overflow-hidden">
   <div class="flex-none w-64 border-r-2 p-4 flex flex-col gap-3">
     <div class="flex-none h-28 mb-10 rounded flex flex-col items-center justify-center">
@@ -34,92 +38,50 @@
       </svg>
       <span class="font-medium text-2xl">StarShop</span>
     </div>
-    <?php if(estaLogueado()){ ?>
-      <?php 
-      if($_SESSION['usuario_tipo'] == "Cajero"){ 
-        redirigir('/ventas');
-      }
-
-      if($_SESSION['usuario_tipo'] == "invitado"){ 
-        redirigir('/scaner');
-      }
-      ?>
-    <div class="flex-none p-2 rounded bg-gradient-to-tr from-gray-700 to-gray-600 flex flex-col text-white">
-        <span class="flex-none font-medium text-base"><?= $_SESSION['usuario_nombre'] ?></span>
-        <span class="flex-none text-gray-300"><?= $_SESSION['usuario_tipo'] ?></span>
-    </div>
-    <a href="<?= URLROOT; ?>/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dashboard" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="12" cy="13" r="2"></circle>
-        <line x1="13.45" y1="11.55" x2="15.5" y2="9.5"></line>
-        <path d="M6.4 20a9 9 0 1 1 11.2 0z"></path>
-      </svg>
-      <span>Escritorio</span>
-    </a>
-    <a href="<?= URLROOT; ?>/productos/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-package" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline>
-        <line x1="12" y1="12" x2="20" y2="7.5"></line>
-        <line x1="12" y1="12" x2="12" y2="21"></line>
-        <line x1="12" y1="12" x2="4" y2="7.5"></line>
-        <line x1="16" y1="5.25" x2="8" y2="9.75"></line>
-      </svg>
-      <span>Productos</span>
-    </a>
-    <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-discount-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-         <line x1="9" y1="15" x2="15" y2="9"></line>
-         <circle cx="9.5" cy="9.5" r=".5" fill="currentColor"></circle>
-         <circle cx="14.5" cy="14.5" r=".5" fill="currentColor"></circle>
-         <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7a2.2 2.2 0 0 0 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1a2.2 2.2 0 0 0 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"></path>
+         <circle cx="6" cy="19" r="2"></circle>
+         <circle cx="17" cy="19" r="2"></circle>
+         <path d="M17 17h-11v-14h-2"></path>
+         <path d="M6 5l14 1l-1 7h-13"></path>
       </svg>
-      <span>Descuentos</span>
-    </a> -->
-    <a href="<?= URLROOT; ?>/inventario/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-warehouse" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M3 21v-13l9 -4l9 4v13"></path>
-        <path d="M13 13h4v8h-10v-6h6"></path>
-        <path d="M13 21v-9a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v3"></path>
-      </svg>
-      <span>Inventario</span>
+      <span>Venta</span>
     </a>
     <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-invoice" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-         <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-         <line x1="9" y1="7" x2="10" y2="7"></line>
-         <line x1="9" y1="13" x2="15" y2="13"></line>
-         <line x1="13" y1="17" x2="15" y2="17"></line>
+         <circle cx="10" cy="10" r="7"></circle>
+         <line x1="21" y1="21" x2="15" y2="15"></line>
       </svg>
-      <span>Facturación</span>
+      <span>Consultar precio</span>
     </a>
-    <a href="<?= URLROOT; ?>/reportes/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash-banknote" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-         <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697"></path>
-         <path d="M18 14v4h4"></path>
-         <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2"></path>
-         <rect x="8" y="3" width="6" height="4" rx="2"></rect>
-         <circle cx="18" cy="18" r="4"></circle>
-         <path d="M8 11h4"></path>
-         <path d="M8 15h3"></path>
+         <circle cx="12" cy="12" r="3"></circle>
+         <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+         <line x1="18" y1="12" x2="18.01" y2="12"></line>
+         <line x1="6" y1="12" x2="6.01" y2="12"></line>
       </svg>
-      <span>Reportes</span>
+      <span>Ingreso y retiro</span>
     </a>
-    <a href="<?= URLROOT; ?>/usuarios/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="9" cy="7" r="4"></circle>
-        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+    <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+         <rect x="7" y="9" width="14" height="10" rx="2"></rect>
+         <circle cx="14" cy="14" r="2"></circle>
+         <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
       </svg>
-      <span>Usuarios</span>
+      <span>Corte de caja</span>
+    </a>
+    <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt-refund" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+         <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
+         <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
+      </svg>
+      <span>Devolución</span>
     </a>
     <a href="<?= URLROOT; ?>/usuarios/logout" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -129,14 +91,159 @@
     </svg>
       <span>Salir</span>
     </a>
-    <?php } else {?>
-    <a href="<?= URLROOT; ?>/usuarios/login" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
-      <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
-    </svg>
-      <span>Iniciar</span>
-    </a>
-    <?php } ?>
   </div>
+    <div class="flex-none flex flex-col p-4 gap-1">
+    <div class="w-80 h-80 rounded-lg bg-gray-700"></div>
+    <span class="text-4xl font-medium"> $ 15.99 </span>
+    <span class="text-2xl font-medium"> Coca-Cola </span>
+    <span class="text-xl font-medium text-gray-600"> 50 en inventario </span>
+  </div>
+  <div class="flex-grow flex flex-col p-4 gap-4">
+    <div class="flex-grow flex flex-col overflow-x-hidden overflow-y-auto border-2 border-gray-400">
+      <table>
+        <thead class="h-14 text-xl">
+          <tr>
+            <th class="text-left pl-4">Código</th>
+            <th class="text-left pl-4">Descripción</th>
+            <th class="text-left pl-4">Cantidad</th>
+            <th class="text-left pl-4">Precio Unitario</th>
+            <th class="text-left pl-4">Precio Total</th>
+          </tr>
+        </thead>
+        <tbody class="h-14 text-xl">
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12 bg-gray-200">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+          <tr class="h-12">
+            <td class="text-left pl-4">0000000</td>
+            <td class="text-left pl-4">Coca-Cola</td>
+            <td class="text-right pr-4">2</td>
+            <td class="text-right pr-4">$ 15.99</td>
+            <td class="text-right pr-4">$ 31.98</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <span class="text-4xl font-medium">Total:</span>
+      <span class="text-5xl font-medium text-red-600"> $ 52.70 </span>
+    </div>
+    <div class="text-right">
+      <span class="text-3xl font-medium">Efectivo: </span>
+      <input class="flex-grow w-80 h-14 px-2 text-right text-4xl font-medium rounded border-2 border-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+    </div>
+    <div class="text-right">
+      <span class="text-3xl font-medium">Cambio:</span>
+      <span class="text-3xl font-medium"> $ 0.30 </span>
+    </div>
+    <div class="flex-none flex gap-4 text-2xl">
+      <input type="submit" class="flex-grow h-16 px-2 rounded bg-gray-200 hover:bg-gray-300 outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer" value="Cancelar" />
+      <input type="submit" class="flex-grow h-16 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer" value="Cobrar" />
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
