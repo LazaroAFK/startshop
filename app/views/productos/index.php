@@ -63,7 +63,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                   <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i] -> id ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
-            <?php for($i = 0; $i < $data['productos'].length; $i += 2){ ?>
+            <?php for($i = 0; $i < count($data['productos']); $i += 2){ ?>
             <tr class="h-12 bg-gray-200">
                 <td class="text-left pl-4"><?= $data['productos'][$i] -> id ?></td>
                 <td class="text-left pl-4"><?= $data['productos'][$i] -> nombre ?></td>
