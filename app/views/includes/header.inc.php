@@ -35,15 +35,6 @@
       <span class="font-medium text-2xl">StarShop</span>
     </div>
     <?php if(estaLogueado()){ ?>
-      <?php 
-      if($_SESSION['usuario_tipo'] == "Cajero"){ 
-        redirigir('/ventas');
-      }
-
-      if($_SESSION['usuario_tipo'] == "invitado"){ 
-        redirigir('/scaner');
-      }
-      ?>
     <div class="flex-none p-2 rounded bg-gradient-to-tr from-gray-700 to-gray-600 flex flex-col text-white">
         <span class="flex-none font-medium text-base"><?= $_SESSION['usuario_nombre'] ?></span>
         <span class="flex-none text-gray-300"><?= $_SESSION['usuario_tipo'] ?></span>
