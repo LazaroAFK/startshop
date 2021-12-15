@@ -2,6 +2,9 @@
 if(!estaLogueado()){
     redirigir('/usuarios/login');
 }
+if($logueado -> tipo == 'Invitado'){ 
+  redirigir('/escaner');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

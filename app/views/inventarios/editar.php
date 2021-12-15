@@ -48,7 +48,7 @@ action="<?= URLROOT ?>/inventarios/editar/<?= isset($data['id']) ? $data['id'] :
     <div class="flex-none w-96 px-1 flex flex-col gap-4">
       <div class="flex flex-col">
         <label type="number" for="" class="p-px font-medium">Lote</label>
-        <input name="lote" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" disabled  value="<?= isset($data['lote']) ? $data['lote'] : 0 ?>" />
+        <input name="lote" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300"  value="<?= isset($data['lote']) ? $data['lote'] : 0 ?>" />
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px font-medium">Fecha</label>
