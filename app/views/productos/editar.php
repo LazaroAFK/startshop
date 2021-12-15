@@ -7,10 +7,10 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
     <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Productos</span>
     </a>
-    <a href="<?= URLROOT; ?>/productos/agregar" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+    <a href="<?= URLROOT; ?>/productos/agregar" class="flex-none h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Agregar</span>
     </a>
-    <a href="#" class="flex-none h-8 px-3 flex items-center justify-center">
+    <a href="#" class="flex-none rounded bg-gray-200 h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Editar</span>
     </a>
     <div class="flex-grow h-8 flex justify-end">

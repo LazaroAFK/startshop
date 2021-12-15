@@ -87,6 +87,7 @@ class productos extends controller{
                 'precio_proveedor' => $_POST['precio_proveedor'],
                 'codigo' => $_POST['codigo'],
                 'id_proveedor' => $_POST['id_proveedor']
+                'id_inventario' => $_POST['id_inventario']
             ];
 
             if(empty($data['id']) || empty($data['nombre'])||
@@ -125,6 +126,7 @@ class productos extends controller{
                 'precio' => $producto -> precio,
                 'precio_proveedor' => $producto -> precio_proveedor,
                 'id_proveedor' => $producto -> id_proveedor
+                'id_inventario' => $producto -> id_inventario
             ];
         }
         $this -> view('productos/editar', $data);

@@ -67,7 +67,7 @@ class producto{
 
     public function editar($id){
         // Consulta
-        $this -> db -> query('SELECT id, nombre, codigo, precio, precio_proveedor, id_proveedor FROM productos WHERE id = :id');
+        $this -> db -> query('SELECT id, nombre, codigo, precio, precio_proveedor, id_proveedor, id_inventario FROM productos WHERE id = :id');
         // Vinculación
         $this -> db -> bind(':id', $id);
         // Ejecución
