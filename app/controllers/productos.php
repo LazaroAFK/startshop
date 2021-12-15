@@ -91,6 +91,8 @@ class productos extends controller{
                 'id_inventario' => $_POST['id_inventario']
             ];
 
+            console($data);
+
             if(empty($data['id']) || empty($data['nombre'])||
                 empty($data['precio']) || empty($data['precio_proveedor'])|
                 empty($data['codigo'])){
