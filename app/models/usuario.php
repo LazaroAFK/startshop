@@ -11,7 +11,7 @@ class usuario{
 
     public function login($usuario_uid, $usuario_password){
         // Enviar el query
-        $this -> db -> query('SELECT usuario_id, usuario_uid, usuario_nombre, usuario_password FROM usuarios WHERE usuario_uid = :usuario_uid');
+        $this -> db -> query('SELECT usuario_id, usuario_uid, usuario_nombre, usuario_password, b.descripcion as tipo FROM usuarios a LEFT JOIN tipo_usuario b ON a.id_tipo_usuario = b.id WHERE usuario_uid = :usuario_uid');
         // Hacer la vinculación
         $this -> db -> bind(':usuario_uid', $usuario_uid);
         // Hacer la consulta execute

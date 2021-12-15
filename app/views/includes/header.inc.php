@@ -34,6 +34,10 @@
       </svg>
       <span class="font-medium text-2xl">StarShop</span>
     </div>
+    <div class="flex-none p-2 rounded bg-gradient-to-tr from-gray-700 to-gray-600 flex flex-col text-white">
+        <span class="flex-none font-medium text-base"><?= $_SESSION['usuario_nombre'] ?></span>
+        <span class="flex-none text-gray-300"><?= $_SESSION['usuario_tipo'] ?></span>
+    </div>
     <a href="<?= URLROOT; ?>/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dashboard" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

@@ -45,6 +45,7 @@ class usuarios extends controller{
                     $_SESSION['usuario_id'] = $logueado -> usuario_id;
                     $_SESSION['usuario_nombre'] = $logueado -> usuario_nombre;
                     $_SESSION['usuario_email'] = $logueado -> usuario_email;
+                    $_SESSION['usuario_tipo'] = $logueado -> tipo;
 
                     redirigir('/');
                 }else{
