@@ -64,7 +64,7 @@ action="<?= URLROOT ?>/productos/agregar" method="POST">
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Proveedor</label>
-        <select name="id_provedor" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300">
+        <select name="id_proveedor" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300">
           <option value="1">Proveedor 1</option>
           <option value="2" selected>Proveedor 2</option>
           <option value="3">Proveedor 3</option>
