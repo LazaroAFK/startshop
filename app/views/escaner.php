@@ -10,6 +10,7 @@ if(!estaLogueado()){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escaner</title>
+    <script src="<?= URLROOT; ?>/js/tailwindcss.min.js"></script>
 </head>
 <body>
 <div class="w-screen h-screen bg-gradient-to-b from-white to-gray-50 flex overflow-hidden">

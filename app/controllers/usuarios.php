@@ -47,11 +47,11 @@ class usuarios extends controller{
                     $_SESSION['usuario_email'] = $logueado -> usuario_email;
                     $_SESSION['usuario_tipo'] = $logueado -> tipo;
 
-                    if($_SESSION['usuario_tipo'] == "Cajero"){
+                    if($logueado -> tipo == 'Cajero'){
                         redirigir('/ventas');
                     }
                 
-                    if($_SESSION['usuario_tipo'] == "Invitado"){ 
+                    if($logueado -> tipo == 'Invitado'){ 
                         redirigir('/escaner');
                     }
 
