@@ -36,6 +36,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                 <th class="text-left pl-4">Código</th>
                 <th class="text-left pl-4">Nombre</th>
                 <th class="text-left pl-4">Precio</th>
+                <th class="text-left pl-4">Costo</th>
                 <th class="text-left pl-4">Cantidad</th>
                 <th class="text-left pl-4">Acciones</th>
             </tr>
@@ -65,7 +66,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </tr>
             <?php for($i = 0; $i < count($data['productos']); $i += 2){ ?>
             <tr class="h-12 bg-gray-200">
-                <td class="text-left pl-4"><?= $data['productos'][$i] -> id ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i] -> codigo ?></td>
                 <td class="text-left pl-4"><?= $data['productos'][$i] -> nombre ?></td>
                 <td class="text-right pr-4"><?= $data['productos'][$i] -> precio ?></td>
                 <td class="text-right pr-4"><?= $data['productos'][$i] -> precio_proveedor ?></td>
@@ -77,7 +78,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </tr>
             <?php if(isset($data['productos'][$i + 1])){ ?>
             <tr class="h-12 bg-gray-200">
-                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> id ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> codigo ?></td>
                 <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> nombre ?></td>
                 <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio ?></td>
                 <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio_proveedor ?></td>
