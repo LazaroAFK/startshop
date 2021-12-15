@@ -69,7 +69,7 @@
       </svg>
       <span>Descuentos</span>
     </a> -->
-    <a href="<?= URLROOT; ?>/inventario/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+    <a href="<?= URLROOT; ?>/inventarios/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-warehouse" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
         <path d="M3 21v-13l9 -4l9 4v13"></path>
@@ -78,7 +78,7 @@
       </svg>
       <span>Inventario</span>
     </a>
-    <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+    <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-invoice" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
          <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -88,7 +88,7 @@
          <line x1="13" y1="17" x2="15" y2="17"></line>
       </svg>
       <span>Facturación</span>
-    </a>
+    </a> -->
     <a href="<?= URLROOT; ?>/reportes/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -120,14 +120,14 @@
     </svg>
       <span>Salir</span>
     </a>
-    <?php } else {?>
-    <a href="<?= URLROOT; ?>/usuarios/login" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+    <?php } else { redirigir('usuarios/login')?>
+    <!-- <a href="<?= URLROOT; ?>/usuarios/login" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
       <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
     </svg>
       <span>Iniciar</span>
-    </a>
+    </a> -->
     <?php } ?>
   </div>

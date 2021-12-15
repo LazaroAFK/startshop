@@ -47,15 +47,15 @@ class usuarios extends controller{
                     $_SESSION['usuario_email'] = $logueado -> usuario_email;
                     $_SESSION['usuario_tipo'] = $logueado -> tipo;
 
+                    console($logueado);
+
                     if($logueado -> tipo == 'Cajero'){
                         redirigir('/ventas');
-                    }
-                
-                    if($logueado -> tipo == 'Invitado'){ 
+                    }else if($logueado -> tipo == 'Invitado'){ 
                         redirigir('/escaner');
+                    }else{
+                        redirigir('/');
                     }
-
-                    redirigir('/');
                 }else{
                     $data['msg_error'] = 'El usuario y/o contraseña son incorrectos.';
                 }
