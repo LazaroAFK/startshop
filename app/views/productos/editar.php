@@ -1,9 +1,15 @@
 <?php
+
+if(!estaLogueado()){
+  redirigir('/usuarios/login');
+}
+
 include_once(APPROOT . '/views/includes/header.inc.php');
 ?>
+
 <form class="flex-grow p-20 overflow-y-scroll flex flex-col gap-4"
 action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0 ?>" method="POST" enctype="x-www-form-urlencoded">
-  <div class="flex-none flex flex-nowrap gap-2" style="max-width: 685px">
+  <div class="flex-none flex flex-nowrap gap-2">
     <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Productos</span>
     </a>
@@ -63,7 +69,7 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Costo</label>
-        <input name="precio_proveedor" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['precio_proveedor']) ? $data['precio_proveedor'] : 0 ?>"/>
+        <input name="precio_proveedor" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['precio_proveedor']) ? $data['precio_proveedor'] : 0 ?>"/>
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Precio</label>
@@ -84,7 +90,7 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
     <label for="" class="flex-shrink w-72 p-px"></label>
     <div class="flex-none w-96 px-1 flex flex-col gap-4">
       <div class="flex flex-col">
-        <input type="submit" class="flex-grow h-8 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"  value="Agregar" />
+        <input type="submit" class="flex-grow h-8 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"  value="Guardar" />
       </div>
     </div>
   </div>

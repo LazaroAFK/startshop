@@ -1,9 +1,15 @@
 <?php
+
+if(!estaLogueado()){
+  redirigir('/usuarios/login');
+}
+
 include_once(APPROOT . '/views/includes/header.inc.php');
 ?>
+
 <form class="flex-grow p-20 overflow-y-scroll flex flex-col gap-4"
 action="<?= URLROOT ?>/productos/agregar" method="POST">
-  <div class="flex-none flex flex-nowrap gap-2" style="max-width: 685px">
+  <div class="flex-none flex flex-nowrap gap-2">
     <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Productos</span>
     </a>
@@ -56,7 +62,7 @@ action="<?= URLROOT ?>/productos/agregar" method="POST">
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Costo</label>
-        <input name="precio_proveedor" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <input name="precio_proveedor" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Precio</label>
