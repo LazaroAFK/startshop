@@ -47,7 +47,7 @@ class producto{
 
     public function agregar($data){
         // Insertar
-        $this -> db -> query('INSERT INTO productos(nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario) VALUES(:nombre, :precio, :codigo, :precio_proveedor, :id_proveedor, :id_inventario)');
+        $this -> db -> query('INSERT INTO productos(nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario, imagen) VALUES(:nombre, :precio, :codigo, :precio_proveedor, :id_proveedor, :id_inventario, :imagen)');
         // Hacer la vinculación
         $this -> db -> bind(':nombre', $data['nombre']);
         $this -> db -> bind(':precio', $data['precio']);
