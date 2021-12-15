@@ -76,7 +76,7 @@ class producto{
         return $this -> db -> unico();
     }
 
-    public function actualizar($id){
+    public function actualizar($data){
         // Consulta
         $this -> db -> query('UPDATE productos SET nombre = :nombre, codigo = :codigo, precio = :precio, precio_proveedor = :precio_proveedor, id_proveedor = :id_proveedor, id_inventario = :id_inventario, imagen = :imagen WHERE id = :id');
         // Vinculación
