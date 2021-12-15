@@ -14,12 +14,12 @@ class productos extends controller{
     public function agregar(){
         // Inicialización para GET
         $data = [
-            'id' => '',
+            'id_inventario' => '',
             'nombre' => '',
             'precio' => '',
             'precio_proveedor' => '',
             'codigo' => '',
-            'proveedor' => '',
+            'id_proveedor' => '',
             'msg_error' => ''
         ];
 
@@ -30,7 +30,7 @@ class productos extends controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'id' => $_POST['id'],
+                'id_inventario' => $_POST['id_inventario'],
                 'nombre' => $_POST['nombre'],
                 'precio' => $_POST['precio'],
                 'precio_proveedor' => $_POST['precio_proveedor'],
@@ -39,7 +39,7 @@ class productos extends controller{
             ];
 
             // Validación
-            if(empty($data['id']) || empty($data['nombre'])||
+            if(empty($data['id_inventario']) || empty($data['nombre'])||
                 empty($data['precio']) || empty($data['precio_proveedor'])|
                 empty($data['codigo'])){
                 $data['msg_error'] = 'Llene todos los campos.';

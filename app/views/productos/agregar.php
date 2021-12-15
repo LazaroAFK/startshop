@@ -22,13 +22,10 @@ action="<?= URLROOT ?>/productos/agregar" method="POST">
     </div>
   </div>
   <?php if(isset($data['msg_error']) && !empty($data['msg_error'])){ ?>
-    <div class="bg-red-600">
+    <div class="bg-red-200">
       <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between flex-wrap">
           <div class="w-0 flex-1 flex items-center">
-            <span class="flex p-2 rounded-lg bg-indigo-800">
-              <SpeakerphoneIcon class="h-6 w-6 text-white" aria-hidden="true" />
-            </span>
             <p class="ml-3 font-medium text-white truncate">
               <span><?= $data['msg_error'] ?></span>
             </p>
