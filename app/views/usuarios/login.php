@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escaner</title>
     <script src="<?= URLROOT; ?>/js/tailwindcss.min.js"></script>
+    <link rel="shortcut icon" type="image/svg" href="<?= URLROOT; ?>/favicon.svg"/>
 </head>
 <body>
 <main class="m-auto form-signin" style="width: 350px;">

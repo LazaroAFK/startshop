@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= TITLE; ?></title>
     <script src="<?= URLROOT; ?>/js/tailwindcss.min.js"></script>
+    <link rel="shortcut icon" type="image/svg" href="<?= URLROOT; ?>/favicon.svg"/>
 </head>
 <body class="d-flex flex-column h-100 justify-content-center">
 <div class="w-screen h-screen bg-gradient-to-b from-white to-gray-50 flex overflow-hidden">
