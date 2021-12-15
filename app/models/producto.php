@@ -18,7 +18,7 @@ class producto{
         $paginas = ceil($numero_registros / $limite);
 
         // Consulta
-        $this -> db -> query("SELECT id, nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario, cantidad FROM productos a, inventario b LIMIT $offset, $limite");
+        $this -> db -> query("SELECT a.id, nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario, if(isnull(cantidad), 0, cantidad) as cantidad FROM productos a LEFT JOIN inventario b ON a.id_inventario = b.id LIMIT $offset, $limite");
 
         // Ejecución
         $registros['productos'] = $this -> db -> multiple();
