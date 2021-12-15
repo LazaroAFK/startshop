@@ -12,7 +12,7 @@ define('DBPASSWORD', '');
 define('URLROOT', 'https://startshop.amigable.dev');
 
 // Privada
-define('APPROOT', dirname(dirname(__FILE__)));
+define('APPROOT', dirname(__DIR__);// dirname(dirname(__FILE__)));
 
 // Otros
 define('TITLE', 'Programación Web');

@@ -11,7 +11,7 @@ class ruta{
     public function __construct(){
         $url = $this -> getURL(); // Recibir un arreglo
 
-        echo "<script>console.log('".APPROOT . '/controllers/' . ucwords($url[0]) . '.php'."')</script>";
+        echo "<script>console.log('". APPROOT . '/controllers/' . ucwords($url[0]) . '.php'."')</script>";
         echo "<script>console.log('".file_exists(APPROOT . '/controllers/' . ucwords($url[0]) . '.php')."')</script>";
         if(file_exists(APPROOT . '/controllers/' . ucwords($url[0]) . '.php')){
             $this -> controladorActual = ucwords($url[0]);
