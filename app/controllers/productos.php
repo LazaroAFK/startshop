@@ -132,33 +132,4 @@ class productos extends controller{
         $producto = $this -> productoModel -> eliminar($id);
         redirigir('/productos');
     }
-
-    // Reporte
-    public function reporte(){
-        $productos = $this -> productoModel -> listarTodosproductos();
-        $this -> view('productos/reporte', $productos);
-    }
-
-    // Migrar
-    public function csv(){
-        $productos = $this -> productoModel -> listarTodosproductos();
-        $this -> view('productos/csv', $productos);
-    }
-
-    public function json(){
-        $productos = $this -> productoModel -> listarTodosproductos();
-        $this -> view('productos/json', $productos);
-    }
-
-    public function xml(){
-        $productos = $this -> productoModel -> listarTodosproductos();
-        $this -> view('productos/xml', $productos);
-    }
-
-    // Servicio web con REST
-    public function sw($nulo, $id = 0){
-        $producto = $this -> productoModel -> buscarproducto($id);
-        header('Content-Type: application/json');
-        echo json_encode($producto, true);
-    }
 }

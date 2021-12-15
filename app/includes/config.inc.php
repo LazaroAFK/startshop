@@ -17,5 +17,5 @@ define('URLROOT', 'https://startshop.amigable.dev');
 define('APPROOT', dirname(dirname(__FILE__)));
 
 // Otros
-define('TITLE', 'Programación Web');
+define('TITLE', 'StartShop');
 
