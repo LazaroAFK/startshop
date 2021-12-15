@@ -12,13 +12,13 @@ class inventario{
 
         $offset = ($pagina - 1) * $limite;
 
-        $this -> db -> query('SELECT COUNT(*) AS numero_registros FROM inventario');
+        $this -> db -> query('SELECT COUNT(*) AS numero_registros FROM compra');
         $numero_registros = $this -> db -> unico() -> numero_registros;
 
         $paginas = ceil($numero_registros / $limite);
 
         // Consulta
-        $this -> db -> query("SELECT id, fecha, lote, total, iva, cantidad, id_producto, id_proveedor FROM compra WHERE id = b.id LIMIT $offset, $limite");
+        $this -> db -> query("SELECT id, fecha, lote, total, iva, cantidad, id_producto, id_proveedor FROM compra LIMIT $offset, $limite");
 
         // Ejecución
         $registros['inventarios'] = $this -> db -> multiple();
