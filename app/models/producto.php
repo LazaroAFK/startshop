@@ -61,6 +61,7 @@ class producto{
             $this -> db -> execute();
             return true;
         }catch(Exception $e){
+            console($e);
             return false;
         }
     }
