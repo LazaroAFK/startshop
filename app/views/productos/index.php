@@ -14,7 +14,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             <span class="font-medium">Productos</span>
         </a>
         <a href="<?= URLROOT; ?>/productos/agregar"
-            class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+            class="flex-none h-8 px-3 flex items-center justify-center">
             <span class="font-medium">Agregar</span>
         </a>
         <div class="flex-grow h-8 flex justify-end">

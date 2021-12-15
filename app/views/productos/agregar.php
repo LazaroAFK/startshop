@@ -4,7 +4,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
 <form class="flex-grow p-20 overflow-y-scroll flex flex-col gap-4"
 action="<?= URLROOT ?>/productos/agregar/<?= isset($data['id']) ? $data['id'] : 0 ?>" method="POST" enctype="x-www-form-urlencoded">
   <div class="flex-none flex flex-nowrap gap-2" style="max-width: 685px">
-    <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+    <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 flex items-center justify-center">
       <span class="font-medium">Productos</span>
     </a>
     <a href="<?= URLROOT; ?>/productos/agregar" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
