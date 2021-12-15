@@ -55,6 +55,7 @@ class producto{
         $this -> db -> bind(':precio_proveedor', $data['precio_proveedor']);
         $this -> db -> bind(':id_proveedor', $data['id_proveedor']);
         $this -> db -> bind(':id_inventario', $data['id_inventario']);
+        $this -> db -> bind(':imagen', '');
         // Hacer la consulta execute
         try{
             $this -> db -> execute();
