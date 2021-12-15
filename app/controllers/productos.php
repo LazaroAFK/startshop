@@ -86,7 +86,7 @@ class productos extends controller{
                 'precio' => $_POST['precio'],
                 'precio_proveedor' => $_POST['precio_proveedor'],
                 'codigo' => $_POST['codigo'],
-                'id_proveedor' => $_POST['id_proveedor']
+                'id_proveedor' => $_POST['id_proveedor'],
                 'id_inventario' => $_POST['id_inventario']
             ];
 
@@ -125,7 +125,7 @@ class productos extends controller{
                 'codigo' => $producto -> codigo,
                 'precio' => $producto -> precio,
                 'precio_proveedor' => $producto -> precio_proveedor,
-                'id_proveedor' => $producto -> id_proveedor
+                'id_proveedor' => $producto -> id_proveedor,
                 'id_inventario' => $producto -> id_inventario
             ];
         }
