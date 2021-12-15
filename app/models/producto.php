@@ -76,6 +76,29 @@ class producto{
         return $this -> db -> unico();
     }
 
+    public function actualizar($id){
+        // Consulta
+        $this -> db -> query('UPDATE productos SET nombre = :nombre, codigo = :codigo, precio = :precio, precio_proveedor = :precio_proveedor, id_proveedor = :id_proveedor, id_inventario = :id_inventario, imagen = :imagen FROM productos WHERE id = :id');
+        // Vinculación
+        $this -> db -> bind(':id', $id);
+        $this -> db -> bind(':nombre', $data['nombre']);
+        $this -> db -> bind(':precio', $data['precio']);
+        $this -> db -> bind(':codigo', $data['codigo']);
+        $this -> db -> bind(':precio_proveedor', $data['precio_proveedor']);
+        $this -> db -> bind(':id_proveedor', $data['id_proveedor']);
+        $this -> db -> bind(':id_inventario', $data['id_inventario']);
+        $this -> db -> bind(':imagen', '');
+        // Ejecución
+
+        try{
+            $this -> db -> execute();
+            return true;
+        }catch(Exception $e){
+            console($e);
+            return false;
+        }
+    }
+
     public function eliminar($id){
         $this -> db -> query('DELETE FROM productos WHERE id = :id');
 

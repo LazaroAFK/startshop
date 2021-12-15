@@ -82,7 +82,7 @@ class productos extends controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'id' => $_POST['id'],
+                'id' => $id,
                 'nombre' => $_POST['nombre'],
                 'precio' => $_POST['precio'],
                 'precio_proveedor' => $_POST['precio_proveedor'],
@@ -93,7 +93,7 @@ class productos extends controller{
 
             console($data);
 
-            if(empty($data['id']) || empty($data['nombre'])||
+            if(empty($data['nombre'])||
                 empty($data['precio']) || empty($data['precio_proveedor'])|
                 empty($data['codigo'])){
                 $data['msg_error'] = 'Llene todos los campos.';

@@ -52,11 +52,11 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px font-medium">Código de barras</label>
-        <input name="codigo" disabled class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['codigo']) ? $data['codigo'] : 0 ?>"/>
+        <input name="codigo" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['codigo']) ? $data['codigo'] : 0 ?>"/>
       </div>
       <div class="flex flex-col">
         <label type="number" for="" class="p-px font-medium">Inventario</label>
-        <input name="id_inventario" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" disabled value="<?= isset($data['id_inventario']) ? $data['id_inventario'] : 0 ?>"/>
+        <input name="id_inventario" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['id_inventario']) ? $data['id_inventario'] : 0 ?>"/>
       </div>
     </div>
   </div>
