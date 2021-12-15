@@ -19,7 +19,7 @@ class grafica{
 
     public function proveedores(){
         // Consulta
-        $this -> db -> query('SELECT SUM(total) as total, SUM(iva) as iva, id_proveedor FROM compra a, proveedores b WHERE a.id_proveedor = b.id GROUP BY a.id_proveedor');
+        $this -> db -> query('SELECT SUM(total) as total, SUM(iva) as iva, nombre FROM compra a LEFT JOIN proveedores b ON a.id_proveedor = b.id GROUP BY nombre');
 
         # Ejecución
         $registros['proveedores'] = $this -> db -> multiple();
