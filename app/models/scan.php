@@ -1,6 +1,6 @@
 <?php
 
-class escaner{
+class scan{
 
     private $db;
     public function __construct(){
