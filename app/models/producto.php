@@ -8,7 +8,7 @@ class producto{
         $this -> db = new base();
     }
 
-    public function listarproductos($limite, $pagina){
+    public function listarProductos($limite, $pagina){
 
         $offset = ($pagina - 1) * $limite;
 
