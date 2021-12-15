@@ -13,6 +13,10 @@ include_once(APPROOT . '/views/includes/header.inc.php');
         <a href="#" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
             <span class="font-medium">Productos</span>
         </a>
+        <a href="<?= URLROOT; ?>/productos/agregar"
+            class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+            <span class="font-medium">Agregar</span>
+        </a>
         <div class="flex-grow h-8 flex justify-end">
             <a href="#" title="Ayuda" class="w-8 h-8 rounded hover:bg-gray-200 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-help" width="24" height="24"
@@ -26,76 +30,64 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </a>
         </div>
     </div>
-    <table class="min-w-full">
-        <thead class="bg-gray-50 border-b border-gray-200">
+    <table>
+        <thead class="h-14 text-xl">
             <tr>
-                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
-                    Name
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
-                    Title
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-900">
-                    Email
-                </th>
+                <th class="text-left pl-4">Código</th>
+                <th class="text-left pl-4">Nombre</th>
+                <th class="text-left pl-4">Precio</th>
+                <th class="text-left pl-4">Cantidad</th>
+                <th class="text-left pl-4">Acciones</th>
             </tr>
         </thead>
-        <tbody>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Jane Cooper
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    Regional Paradigm Technician
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    jane.cooper@example.com
-                </td>
-            </tr>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Cody Fisher
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    Product Directives Officer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    cody.fisher@example.com
+        <tbody class="h-14 text-xl">
+            <tr class="h-12 bg-gray-200">
+                <td class="text-left pl-4">0000000</td>
+                <td class="text-left pl-4">Coca-Cola</td>
+                <td class="text-right pr-4">2</td>
+                <td class="text-right pr-4">$ 15.99</td>
+                <td class="text-right pr-4">$ 31.98</td>
+                <td>
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i] -> id ?>" class="btn btn-primary">Editar</a>
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i] -> id ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Leonard Krasner
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    Senior Designer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    leonard.krasner@example.com
-                </td>
-            </tr>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Emily Selman
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    VP, Hardware Engineering
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    emily.selman@example.com
+            <tr class="h-12">
+                <td class="text-left pl-4">0000000</td>
+                <td class="text-left pl-4">Coca-Cola</td>
+                <td class="text-right pr-4">2</td>
+                <td class="text-right pr-4">$ 15.99</td>
+                <td class="text-right pr-4">$ 31.98</td>
+                <td>
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i] -> id ?>" class="btn btn-primary">Editar</a>
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i] -> id ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
-            <tr class="odd:bg-white even:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    Anna Roberts
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    Chief Strategy Officer
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    anna.roberts@example.com
+            <?php for($i = 0; $i < $data['productos'].length; $i += 2){ ?>
+            <tr class="h-12 bg-gray-200">
+                <td class="text-left pl-4"><?= $data['productos'][$i] -> id ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i] -> nombre ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> precio ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> precio_proveedor ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> cantidad ?></td>
+                <td>
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i] -> id ?>" class="btn btn-primary">Editar</a>
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i] -> id ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
+            <?php if(isset($data['productos'][$i + 1])){ ?>
+            <tr class="h-12 bg-gray-200">
+                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> id ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> nombre ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio_proveedor ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> cantidad ?></td>
+                <td>
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i + 1] -> id ?>" class="btn btn-primary">Editar</a>
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i + 1] -> id ?>" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            <?php }} ?>
         </tbody>
     </table>
 

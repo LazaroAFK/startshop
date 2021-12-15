@@ -4,11 +4,14 @@ include_once(APPROOT . '/views/includes/header.inc.php');
 <form class="flex-grow p-20 overflow-y-scroll flex flex-col gap-4"
 action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0 ?>" method="POST" enctype="x-www-form-urlencoded">
   <div class="flex-none flex flex-nowrap gap-2" style="max-width: 685px">
-    <a href="#" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
-      <span class="font-medium">Producto</span>
+    <a href="<?= URLROOT; ?>/productos" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+      <span class="font-medium">Productos</span>
     </a>
-    <a href="#" class="flex-none h-8 px-3 flex items-center justify-center">
-      <span class="font-medium">Inventario</span>
+    <a href="<?= URLROOT; ?>/productos/agregar" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+      <span class="font-medium">Agregar</span>
+    </a>
+    <a href="#" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
+      <span class="font-medium">Editar</span>
     </a>
     <div class="flex-grow h-8 flex justify-end">
       <a href="#" title="Ayuda" class="w-8 h-8 rounded hover:bg-gray-200 flex items-center justify-center">
@@ -26,11 +29,15 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
     <div class="flex-none w-96 px-1 flex flex-col gap-4">
       <div class="flex flex-col">
         <label type="number" for="" class="p-px font-medium">ID</label>
-        <input class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" disabled  value="1" />
+        <input name="id" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" disabled  value="<?= isset($data['id']) ? $data['id'] : 0 ?>" />
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px font-medium">Código de barras</label>
-        <input class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <input name="codigo" disabled class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['codigo']) ? $data['codigo'] : 0 ?>"/>
+      </div>
+      <div class="flex flex-col">
+        <label type="number" for="" class="p-px font-medium">Inventario</label>
+        <input name="id_inventario" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" disabled value="<?= isset($data['id_inventario']) ? $data['id_inventario'] : 0 ?>"/>
       </div>
     </div>
   </div>
@@ -39,49 +46,24 @@ action="<?= URLROOT ?>/productos/editar/<?= isset($data['id']) ? $data['id'] : 0
     <div class="flex-none w-96 px-1 flex flex-col gap-4">
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Nombre</label>
-        <input class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
-      </div>
-      <div class="flex flex-col">
-        <label for="" class="w-72 p-px">Descripción</label>
-        <input class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <input name="nombre" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['nombre']) ? $data['nombre'] : 0 ?>"/>
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Costo</label>
-        <input type="date" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <input name="precio_proveedor" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['precio_proveedor']) ? $data['precio_proveedor'] : 0 ?>"/>
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Precio</label>
-        <input class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <input name="precio" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" value="<?= isset($data['precio']) ? $data['precio'] : 0 ?>"/>
       </div>
       <div class="flex flex-col">
-        <label for="" class="w-72 p-px">Departamento</label>
-        <select name="select" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300">
-          <option value="value1">Frutas y Verduras</option>
-          <option value="value2" selected>General</option>
-          <option value="value3">Mascotas</option>
-          <option value="value3">Refrigerados</option>
+        <label for="" class="w-72 p-px">Proveedor</label>
+        <select name="id_provedor" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300">
+          <option value="1">Frutas y Verduras</option>
+          <option value="2" selected>General</option>
+          <option value="3">Mascotas</option>
+          <option value="4">Refrigerados</option>
         </select>
-      </div>
-    </div>
-  </div>
-  <div class="flex-none mb-10 flex gap-3">
-    <label for="" class="flex-shrink w-72 p-px font-medium">Adicionales</label>
-    <div class="flex-none w-96 px-1 flex flex-col gap-4">
-      <div class="flex flex-col">
-        <div class="flex-grow p-2 rounded border-2 flex flex-col">
-          <div class="flex items-center gap-2">
-            <input id="cbClientes" type="checkbox" class="rounded border-2 outline-none focus:ring-2 focus:ring-blue-300" />
-            <label for="cbClientes" class="w-72 p-px ">Restrincción de edad.</label>
-          </div>
-          <div class="flex items-center gap-2">
-            <input id="cbAlmacenes" type="checkbox" class="rounded border-2 outline-none focus:ring-2 focus:ring-blue-300" />
-            <label for="cbAlmacenes" class="w-72 p-px ">Disponible solo Socios.</label>
-          </div>
-          <div class="flex items-center gap-2">
-            <input type="checkbox" class="rounded border-2 outline-none focus:ring-2 focus:ring-blue-300" />
-            <label for="" class="w-72 p-px ">Producto unico por Cliente.</label>
-          </div>
-        </div>
       </div>
     </div>
   </div>

@@ -18,7 +18,7 @@ class producto{
         $paginas = ceil($numero_registros / $limite);
 
         // Consulta
-        $this -> db -> query("SELECT id, producto_rfc, producto_nombre, producto_direccion, producto_telefono, producto_email, producto_fotografia FROM productos LIMIT $offset, $limite");
+        $this -> db -> query("SELECT id, nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario, cantidad FROM productos a, inventario b LIMIT $offset, $limite");
 
         // Ejecución
         $registros['productos'] = $this -> db -> multiple();
@@ -37,7 +37,7 @@ class producto{
 
     public function listarTodosproductos(){
         // Consulta
-        $this -> db -> query('SELECT id, producto_rfc, producto_nombre, producto_direccion, producto_telefono, producto_email, producto_fotografia FROM productos');
+        $this -> db -> query('SELECT id, nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario, cantidad FROM productos a, inventario b WHERE a.id_inventario = b.id');
 
         # Ejecución
         $registros['productos'] = $this -> db -> multiple();
@@ -47,14 +47,14 @@ class producto{
 
     public function agregar($data){
         // Insertar
-        $this -> db -> query('INSERT INTO productos(producto_rfc, producto_nombre, producto_direccion, producto_email, producto_telefono, producto_fotografia) VALUES(:producto_rfc, :producto_nombre, :producto_direccion, :producto_email, :producto_telefono, :producto_fotografia)');
+        $this -> db -> query('INSERT INTO productos(nombre, precio, codigo, precio_proveedor, id_proveedor, id_inventario) VALUES(:nombre, :precio, :codigo, :precio_proveedor, :id_proveedor, :id_inventario)');
         // Hacer la vinculación
-        $this -> db -> bind(':producto_rfc', $data['producto_rfc']);
-        $this -> db -> bind(':producto_nombre', $data['producto_nombre']);
-        $this -> db -> bind(':producto_email', $data['producto_email']);
-        $this -> db -> bind(':producto_direccion', $data['producto_direccion']);
-        $this -> db -> bind(':producto_telefono', $data['producto_telefono']);
-        $this -> db -> bind(':producto_fotografia', $data['producto_fotografia']);
+        $this -> db -> bind(':nombre', $data['nombre']);
+        $this -> db -> bind(':precio', $data['precio']);
+        $this -> db -> bind(':codigo', $data['codigo']);
+        $this -> db -> bind(':precio_proveedor', $data['precio_proveedor']);
+        $this -> db -> bind(':id_proveedor', $data['id_proveedor']);
+        $this -> db -> bind(':id_inventario', $data['id_inventario']);
         // Hacer la consulta execute
         try{
             $this -> db -> execute();
@@ -66,7 +66,7 @@ class producto{
 
     public function editar($id){
         // Consulta
-        $this -> db -> query('SELECT id, producto_rfc, producto_nombre, producto_direccion, producto_email, producto_telefono, producto_fotografia FROM productos WHERE id = :id');
+        $this -> db -> query('SELECT id, nombre, codigo, precio, precio_proveedor, id_proveedor FROM productos WHERE id = :id');
         // Vinculación
         $this -> db -> bind(':id', $id);
         // Ejecución
@@ -87,39 +87,15 @@ class producto{
         }
     }
 
-    public function encontrarproductoPorRFC($producto_rfc){
+    public function encontrarproductoPorCodigo($codigo){
         // Consulta
-        $this -> db -> query('SELECT id FROM productos WHERE producto_rfc = :producto_rfc');
+        $this -> db -> query('SELECT id FROM productos WHERE codigo = :codigo');
         // Vinculación
-        $this -> db -> bind(':producto_rfc', $producto_rfc);
+        $this -> db -> bind(':codigo', $codigo);
         // Ejecución
         $this -> db -> unico();
 
         return ($this -> db -> conteoReg() > 0);
     }
 
-    // Buscar producto para servicio web
-
-    public function buscarproducto($id){
-        $this -> db -> query('SELECT id, producto_nombre FROM productos WHERE id = :id');
-        // Vinculación
-        $this -> db -> bind(':id', $id);
-        // Ejecución
-        return $this -> db -> unico();
-    }
-
-    public function buscarproductoSOAP($id){
-        $this -> db -> query('SELECT producto_nombre, producto_direccion, producto_email FROM productos WHERE id = :id');
-        // Vinculación
-        $this -> db -> bind(':id', $id);
-        // Ejecución
-        $producto = $this -> db -> unico();
-        return [
-            'nombre' => $producto -> producto_nombre,
-            'direccion' => $producto -> producto_direccion,
-            'correo' => $producto -> producto_email
-        ];
-    }
-
-    // Servicio web -- SOAP
 }

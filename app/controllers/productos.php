@@ -14,12 +14,12 @@ class productos extends controller{
     public function agregar(){
         // Inicialización para GET
         $data = [
-            'producto_rfc' => '',
-            'producto_nombre' => '',
-            'producto_email' => '',
-            'producto_direccion' => '',
-            'producto_telefono' => '',
-            'producto_fotografia' => '',
+            'id' => '',
+            'nombre' => '',
+            'precio' => '',
+            'precio_proveedor' => '',
+            'codigo' => '',
+            'proveedor' => '',
             'msg_error' => ''
         ];
 
@@ -30,29 +30,29 @@ class productos extends controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
-                'producto_rfc' => $_POST['producto_rfc'],
-                'producto_nombre' => $_POST['producto_nombre'],
-                'producto_email' => $_POST['producto_email'],
-                'producto_direccion' => $_POST['producto_direccion'],
-                'producto_telefono' => $_POST['producto_telefono'],
-                'producto_fotografia' => ($_POST['producto_fotografia']['size'] == 0) ? null : file_get_contents($_FILES['producto_fotografia']['tmp_name'])
+                'id' => $_POST['id'],
+                'nombre' => $_POST['nombre'],
+                'precio' => $_POST['precio'],
+                'precio_proveedor' => $_POST['precio_proveedor'],
+                'codigo' => $_POST['codigo'],
+                'proveedor' => $_POST['proveedor']
             ];
 
             // Validación
-            if(empty($data['producto_rfc']) || empty($data['producto_nombre'])||
-                empty($data['producto_email']) || empty($data['producto_direccion'])|
-                empty($data['producto_telefono'])){
+            if(empty($data['id']) || empty($data['nombre'])||
+                empty($data['precio']) || empty($data['precio_proveedor'])|
+                empty($data['codigo'])){
                 $data['msg_error'] = 'Llene todos los campos.';
             }
 
             // Formato de correo electrónico
-            if(!filter_var($data['producto_email'], FILTER_VALIDATE_EMAIL)){
-                $data['msg_error'] = 'El formato del email no es correcto.';
+            if($data['precio'] <= 0){
+                $data['msg_error'] = 'El precio no puede ser $0.00.';
             }
 
             // Validar que no exista el producto ni el correo.
-            if($this -> productoModel -> encontrarproductoPorRFC($data['producto_rfc'])){
-                $data['msg_error'] = 'Ya existe un producto registrado con ese RFC.';
+            if($this -> productoModel -> encontrarproductoPorCodigo($data['codigo'])){
+                $data['msg_error'] = 'Ya existe un producto registrado con ese codigo.';
             }
 
             // Validación de tabla
@@ -82,24 +82,27 @@ class productos extends controller{
 
             $data = [
                 'id' => $_POST['id'],
-                'producto_rfc' => $_POST['producto_rfc'],
-                'producto_nombre' => $_POST['producto_nombre'],
-                'producto_email' => $_POST['producto_email'],
-                'producto_direccion' => $_POST['producto_direccion'],
-                'producto_telefono' => $_POST['producto_telefono'],
-                'producto_fotografia' => ($_POST['producto_fotografia']['size'] == 0) ? null : file_get_contents($_FILES['producto_fotografia']['tmp_name'])
+                'nombre' => $_POST['nombre'],
+                'precio' => $_POST['precio'],
+                'precio_proveedor' => $_POST['precio_proveedor'],
+                'codigo' => $_POST['codigo'],
+                'proveedor' => $_POST['proveedor']
             ];
 
-            // Validación
-            if(empty($data['producto_rfc']) || empty($data['producto_nombre'])||
-                empty($data['producto_email']) || empty($data['producto_direccion'])|
-                empty($data['producto_telefono'])){
+            if(empty($data['id']) || empty($data['nombre'])||
+                empty($data['precio']) || empty($data['precio_proveedor'])|
+                empty($data['codigo'])){
                 $data['msg_error'] = 'Llene todos los campos.';
             }
 
             // Formato de correo electrónico
-            if(!filter_var($data['producto_email'], FILTER_VALIDATE_EMAIL)){
-                $data['msg_error'] = 'El formato del email no es correcto.';
+            if($data['precio'] <= 0){
+                $data['msg_error'] = 'El precio no puede ser $0.00.';
+            }
+
+            // Validar que no exista el producto ni el correo.
+            if($this -> productoModel -> encontrarproductoPorCodigo($data['codigo'])){
+                $data['msg_error'] = 'Ya existe un producto registrado con ese codigo.';
             }
 
             // Validación de tabla
@@ -117,12 +120,11 @@ class productos extends controller{
 
             $data = [
                 'id' => $producto -> id,
-                'producto_rfc' => $producto -> producto_rfc,
-                'producto_nombre' => $producto -> producto_nombre,
-                'producto_email' => $producto -> producto_email,
-                'producto_direccion' => $producto -> producto_direccion,
-                'producto_telefono' => $producto -> producto_telefono,
-                'producto_fotografia' => $producto -> producto_fotografia
+                'nombre' => $producto -> nombre,
+                'codigo' => $producto -> codigo,
+                'precio' => $producto -> precio,
+                'precio_proveedor' => $producto -> precio_proveedor,
+                'proveedor' => $producto -> proveedor
             ];
         }
         $this -> view('productos/editar', $data);
