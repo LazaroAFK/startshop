@@ -4,8 +4,11 @@ if(!estaLogueado()){
   redirigir('/usuarios/login');
 }
 
+console($data);
+
 include_once(APPROOT . '/views/includes/header.inc.php');
 ?>
+
 <script src="<?= URLROOT; ?>/js/chart.min.js"></script>
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
