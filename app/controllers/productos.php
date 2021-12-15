@@ -104,11 +104,6 @@ class productos extends controller{
                 $data['msg_error'] = 'El precio no puede ser $0.00.';
             }
 
-            // Validar que no exista el producto ni el correo.
-            if($this -> productoModel -> encontrarproductoPorCodigo($data['codigo'])){
-                $data['msg_error'] = 'Ya existe un producto registrado con ese codigo.';
-            }
-
             // Validación de tabla
             if(empty($data['msg_error'])){
                 // Induce a utilizar la conexión a base de datos, model
