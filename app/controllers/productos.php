@@ -8,6 +8,7 @@ class productos extends controller{
     
     public function index($limite = 10, $pagina = 1){
         $productos = $this -> productoModel -> listarProductos($limite, $pagina);
+        console($productos);
         $this -> view('productos/index', $productos);
     }
 
