@@ -11,11 +11,8 @@ class ruta{
     public function __construct(){
         $url = $this -> getURL(); // Recibir un arreglo
 
-        echo "<script>console.log('". APPROOT . '/controllers/' . $url[0] . '.php'."')</script>";
-        echo "<script>console.log('".file_exists(APPROOT . '/controllers/' . $url[0] . '.php')."')</script>";
         if(file_exists(APPROOT . '/controllers/' . $url[0] . '.php')){
             $this -> controladorActual = $url[0];
-            echo "<script>console.log('".$url[0]."')</script>";
         }
 
         // Cargar el controlador, crear una instancia del controlador (Clase)
@@ -32,7 +29,7 @@ class ruta{
                 $this -> metodoActual = $url[1];
             }
             // Limpiar memoria
-            unset($url[1]);
+            // unset($url[1]);
         }
 
         // Parámetros

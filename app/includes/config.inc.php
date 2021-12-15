@@ -1,10 +1,12 @@
 <?php
 
 define('DBMOTOR', 'mysql');
-define('DBSERVER', 'localhost');
-define('DBNAME', 'pw20213v');
-define('DBUSUARIO', 'root');
-define('DBPASSWORD', '');
+define('DBSERVER', 'us-cdbr-east-05.cleardb.net');
+define('DBNAME', 'heroku_8550a52894c6e70');
+define('DBUSUARIO', 'bc895eb5c2f676');
+define('DBPASSWORD', '8500d8f6');
+
+//mysql://bc895eb5c2f676:8500d8f6@us-cdbr-east-05.cleardb.net/heroku_8550a52894c6e70?reconnect=true
 
 // Apoyo para acceso publicos y privados
 
