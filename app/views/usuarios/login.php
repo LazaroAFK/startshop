@@ -12,7 +12,7 @@
 <body>
 <div class="w-screen h-screen px-10 py-10 bg-gray-700">
       <form class="w-full m-auto flex shadow-2xl" style="width: 400px;" action="<?= URLROOT ?>/usuarios/login" method="POST">
-        <div class="flex-grow rounded-xl bg-white flex flex-col">
+        <div class="w-full flex-grow rounded-xl bg-white flex flex-col">
           <div class="flex-none h-28 mb-10 rounded flex flex-col items-center justify-center">
             <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1">
               <defs>
@@ -39,11 +39,11 @@
           </div>
           <div class="px-10 py-2 flex flex-col gap-2">
             <label for="" class="font-medium text-lg">Usuario</label>
-            <input name="usuario_uid" class="w-full h-11 px-4 border-2 border-blue-200 rounded-xl focus:ring-2 ring-blue-300 outline-none" value="{{usuario}}"/>
+            <input name="usuario_uid" class="w-full h-11 px-4 border-2 border-blue-200 rounded-xl focus:ring-2 ring-blue-300 outline-none"/>
           </div>
           <div class="px-10 py-2 flex flex-col gap-2">
             <label for="" class="font-medium text-lg">Contraseña</label>
-            <input name="password" type="password" class="w-full h-11 px-4 border-2 border-blue-200 rounded-xl focus:ring-2 ring-blue-300 outline-none" />
+            <input name="usuario_password" type="password" class="w-full h-11 px-4 border-2 border-blue-200 rounded-xl focus:ring-2 ring-blue-300 outline-none" />
           </div>
           <div class="h-16 mt-10 mb-5 px-10 py-2 flex gap-1 items-center">
             <div class="flex-grow font-medium text-lg text-white">
