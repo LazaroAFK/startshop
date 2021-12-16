@@ -43,14 +43,14 @@ include_once(APPROOT . '/views/includes/header.inc.php');
 
 $productos = '';
 $productosCantidad = '';
-foreach($producto in $data['productos']){
+foreach($data['productos'] as $producto){
     $productos .= $producto -> nombre . ',';
     $productosCantidad .= $producto -> cantidad . ',';
 }
 
 $proveedores = '';
 $proveedoresTotal = '';
-foreach($proveedor in $data['proveedores']){
+foreach($data['proveedores'] as $proveedor){
     $proveedores .= $proveedor -> nombre . ',';
     $proveedoresTotal .= $proveedor -> total . ',' . $proveedor -> iva . ',';
 }
