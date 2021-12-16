@@ -7,7 +7,8 @@ class usuarios extends controller{
     }
 
     public function index(){
-        $this -> view('/construccion');
+        $usuarios = $this -> usuarioModel -> listarUsuarios($limite, $pagina);
+        $this -> view('usuarios/index', $usuarios);
     }
 
     public function login(){
@@ -64,7 +65,7 @@ class usuarios extends controller{
         $this -> view('usuarios/login', $data);
     }
 
-    public function register(){
+    public function agregar(){
         // Inicialización para GET
         $data = [
             'usuario_uid' => '',
@@ -116,13 +117,13 @@ class usuarios extends controller{
                 // Induce a utilizar la conexión a base de datos, model
                 $data['usuario_password'] = password_hash($data['usuario_password'], PASSWORD_DEFAULT);
                 if($this -> usuarioModel -> register($data)){
-                    redirigir('/usuarios/login');
+                    redirigir('/usuarios');
                 }{
                     $data['msg_error'] = 'Ocurrio un error inesperado.';
                 }
             }
         }
-        $this -> view('usuarios/register', $data);
+        $this -> view('usuarios/agregar', $data);
     }
 
     public function logout(){

@@ -44,6 +44,17 @@ class usuario{
         }
     }
 
+    public function listarUsuarios(){
+        // Consulta
+        $this -> db -> query('SELECT usuario_uid, usuario_nombre, usuario_email, b.descripcion FROM usuarios a LEFT JOIN tipo_usuario b ON a.id_tipo_usuario = b.id');
+
+        # Ejecución
+        $registros['productos'] = $this -> db -> multiple();
+
+        return $registros;
+    }
+
+
     public function encontrarUsuarioPorEmailOUsuario($usuario_uid, $usuario_email){
         // Consulta
         $this -> db -> query('SELECT usuario_uid FROM usuarios WHERE usuario_uid = :usuario_uid OR usuario_email = :usuario_email');
