@@ -10,7 +10,7 @@ class ventas extends controller{
     public function index(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
-            $escaner = array_merge($_SESSION['lista_venta'], $escaner['producto']);
+            $escaner = array_merge($_SESSION['lista_venta'], $escaner);
             $_SESSION['lista_venta'] = $escaner
         }
 

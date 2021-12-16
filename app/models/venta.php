@@ -13,8 +13,8 @@ class venta{
 
         $this -> db -> bind(':codigo', $code);
         // Ejecución
-        $registros['producto'] = $this -> db -> unico();
+        $registros = $this -> db -> unico();
 
-        return array_merge($registros);
+        return $registros;
     }
 }
