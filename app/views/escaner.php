@@ -135,9 +135,10 @@ if(!estaLogueado()){
             console.log(codescan);
 
             code.value = codescan;
-            buscar.submit();
+            
             setTimeout(() => {
                 notSleep = true;
+                buscar.submit();
             }, 600);
         }
     }
