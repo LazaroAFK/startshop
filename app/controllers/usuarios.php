@@ -7,7 +7,7 @@ class usuarios extends controller{
     }
 
     public function index(){
-        $usuarios = $this -> usuarioModel -> listarUsuarios($limite, $pagina);
+        $usuarios = $this -> usuarioModel -> listarUsuarios();
         $this -> view('usuarios/index', $usuarios);
     }
 
