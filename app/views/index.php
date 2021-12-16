@@ -26,30 +26,46 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </a>
         </div>
     </div>
-    <div class="flex-none mb-10 flex gap-20 justify-center">
+    <div class="flex-none mb-10 flex gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Productos</label>
-        <div class="w-96 h-96">
+        <div class="w-full h-96">
             <canvas id="myChart1" width="400" height="400"></canvas>
         </div>
     </div>
-    <div class="flex-none mb-10 flex gap-3">
+    <div class="flex-none mb-10 flex gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Inventarios</label>
-        <div class="w-96 h-96">
+        <div class="w-full h-96">
             <canvas id="myChart2" width="400" height="400"></canvas>
         </div>
     </div>
 </div>
+<?php
 
+$productos = '';
+$productosCantidad = '';
+foreach($producto in $data['productos']){
+    $productos .= $producto -> nombre . ',';
+    $productosCantidad .= $producto -> cantidad . ',';
+}
+
+$proveedores = '';
+$proveedoresTotal = '';
+foreach($proveedor in $data['proveedores']){
+    $proveedores .= $proveedor -> nombre . ',';
+    $proveedoresTotal .= $proveedor -> total . ',' . $proveedor -> iva . ',';
+}
+
+?>
 <script src="<?= URLROOT; ?>/js/chart.min.js"></script>
 <script>
 const ctx1 = document.getElementById('myChart1').getContext('2d');
 const myChart1 = new Chart(ctx1, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [<?= $productos ?>],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Número de productos',
+            data: [<?= $cantidad ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -82,10 +98,10 @@ const ctx2 = document.getElementById('myChart2').getContext('2d');
 const myChart2 = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: [<?= $proveedores ?>],
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [<?= $proveedoresTotal ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
