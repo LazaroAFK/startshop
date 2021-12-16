@@ -36,9 +36,9 @@
       <span class="font-medium text-2xl">StarShop</span>
     </div>
     <?php if(estaLogueado()){ 
-      if($logueado -> tipo == 'Cajero'){
+      if($_SESSION['usuario_tipo'] == 'Cajero'){
         redirigir('/ventas');
-      }else if($logueado -> tipo == 'Invitado'){ 
+      }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
         redirigir('/escaner');
       }
       ?>

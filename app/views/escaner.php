@@ -19,7 +19,9 @@ if(!estaLogueado()){
     <div class="w-screen h-screen bg-gradient-to-b from-white to-gray-50 flex overflow-hidden">
         <div class="flex-grow flex flex-col p-4 gap-1">
             <div class="flex-none justify-center flex p-4 gap-4">
-                <div class="w-80 h-80 rounded-lg bg-gray-700"></div>
+                <div class="w-80 h-80 rounded-lg bg-gray-700 overflow-hidden">
+                    <div id="yourElement" class="h-full w-full"></div>
+                </div>
                 <div class="flex flex-col justify-center">
                     <span class="text-8xl font-medium"> $ <?= isset($data['producto'] -> precio) ? $data['producto'] -> precio : 0 ?> </span>
                     <span class="text-6xl font-medium"> <?= isset($data['producto'] -> nombre) ? $data['producto'] -> nombre : 'No se encontro' ?> </span>
@@ -77,7 +79,6 @@ if(!estaLogueado()){
         <input type="hidden" name="codigo" id="code" value="0">
     </form>
 
-    <div id="yourElement" style="width: 0px;"></div>
     <script src="<?= URLROOT; ?>/js/quagga.min.js"></script>
     <script>
     Quagga.init({
