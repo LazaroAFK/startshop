@@ -44,15 +44,15 @@ include_once(APPROOT . '/views/includes/header.inc.php');
 $productos = '';
 $productosCantidad = '';
 foreach($data['productos'] as $producto){
-    $productos .= $producto -> nombre . ',';
+    $productos .= '"' . $producto -> nombre . '",';
     $productosCantidad .= $producto -> cantidad . ',';
 }
 
 $proveedores = '';
 $proveedoresTotal = '';
 foreach($data['proveedores'] as $proveedor){
-    $proveedores .= $proveedor -> nombre . ',';
-    $proveedoresTotal .= $proveedor -> total . ',' . $proveedor -> iva . ',';
+    $proveedores .= '"' . $proveedor -> nombre . '",';
+    $proveedoresTotal .= '[' . $proveedor -> total . ',' . $proveedor -> iva . '],';
 }
 
 ?>
