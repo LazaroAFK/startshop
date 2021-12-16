@@ -38,7 +38,6 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                 <th class="text-left pl-4">Precio</th>
                 <th class="text-left pl-4">Costo</th>
                 <th class="text-left pl-4">Cantidad</th>
-                <th class="text-left pl-4">Acciones</th>
             </tr>
         </thead>
         <tbody class="h-14 text-xl">
