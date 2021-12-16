@@ -26,13 +26,13 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </a>
         </div>
     </div>
-    <div class="flex-none mb-10 flex flex-col gap-4">
+    <div class="flex-none h-96 mb-10 flex flex-col gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Productos</label>
         <div class="flex-none w-full h-96">
             <canvas id="myChart1" width="400" height="400"></canvas>
         </div>
     </div>
-    <div class="flex-none mb-10 flex flex-col gap-4">
+    <div class="flex-none h-96 mb-10 flex flex-col gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Inventarios</label>
         <div class="flex-none w-full h-96">
             <canvas id="myChart2" width="400" height="400"></canvas>
@@ -50,9 +50,11 @@ foreach($data['productos'] as $producto){
 
 $proveedores = '';
 $proveedoresTotal = '';
+$proveedoresIVA = '';
 foreach($data['proveedores'] as $proveedor){
     $proveedores .= '"' . $proveedor -> nombre . '",';
-    $proveedoresTotal .= '[' . $proveedor -> total . ',' . $proveedor -> iva . '],';
+    $proveedoresTotal .= $proveedor -> total . ',';
+    $proveedoresIVA .= $proveedor -> iva . ',';
 }
 
 ?>
@@ -102,6 +104,26 @@ const myChart2 = new Chart(ctx2, {
         datasets: [{
             label: 'Gastos Proveedores',
             data: [<?= $proveedoresTotal ?>],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        },{
+            label: 'IVA Proveedores',
+            data: [<?= $proveedoresIVA ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
