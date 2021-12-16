@@ -65,7 +65,7 @@ const myChart1 = new Chart(ctx1, {
         labels: [<?= $productos ?>],
         datasets: [{
             label: 'Número de productos',
-            data: [<?= $cantidad ?>],
+            data: [<?= $productosCantidad ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -100,7 +100,7 @@ const myChart2 = new Chart(ctx2, {
     data: {
         labels: [<?= $proveedores ?>],
         datasets: [{
-            label: '# of Votes',
+            label: 'Gastos Proveedores',
             data: [<?= $proveedoresTotal ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
