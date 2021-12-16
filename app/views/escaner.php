@@ -74,7 +74,7 @@ if(!estaLogueado()){
         </div>
     </div>
     <form id="buscar" action="<?= URLROOT ?>/escaner" method="POST">
-        <input type="hidden" id="code" value="0">
+        <input type="hidden" name="codigo" id="code" value="0">
     </form>
 
     <div id="yourElement" style="width: 0px;"></div>
@@ -125,16 +125,16 @@ if(!estaLogueado()){
 
     function detected(data) {
         if (notSleep) {
+
+            notSleep = false;
+            let audio = new Audio('<?= URLROOT; ?>/sounds/beep.mp3');
+            audio.play();
+
             let codescan = data.codeResult.code;
             console.log(codescan);
 
             code.value = codescan;
             buscar.submit();
-
-
-            notSleep = false;
-            let audio = new Audio('<?= URLROOT; ?>/sounds/beep.mp3');
-            audio.play();
             setTimeout(() => {
                 notSleep = true;
             }, 600);
