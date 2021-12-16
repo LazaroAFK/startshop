@@ -140,12 +140,12 @@ if($logueado -> tipo == 'Invitado'){
                 <div id="yourElement" class="h-full"></div>
             </div>
             <span class="text-4xl font-medium"> $
-                <?= count($data['producto']) ? $data['producto'][count($data['producto']) - 1] -> precio : 0 ?> </span>
+                <?= count($data) ? $data[count($data) - 1] -> precio : 0 ?> </span>
             <span class="text-2xl font-medium">
-                <?= count($data['producto']) ? $data['producto'][count($data['producto']) - 1] -> nombre : 'No se encontro' ?>
+                <?= count($data) ? $data[count($data) - 1] -> nombre : 'No se encontro' ?>
             </span>
             <span class="text-xl font-medium text-gray-600">
-                <?= count($data['producto']) ? $data['producto'][count($data['producto']) - 1] -> cantidad : 0 ?> en
+                <?= count($data) ? $data[count($data) - 1] -> cantidad : 0 ?> en
                 inventario </span>
         </div>
         <div class="flex-grow flex flex-col p-4 gap-4">
@@ -161,15 +161,15 @@ if($logueado -> tipo == 'Invitado'){
                         </tr>
                     </thead>
                     <tbody class="h-14 text-xl">
-                        <?php for($i = 0; $i < count($data['producto']); $i += 2){ ?>
+                        <?php for($i = 0; $i < count($data); $i += 2){ ?>
                         <tr class="h-12 bg-gray-200">
-                            <td class="text-left pl-4"><?= $data['producto'][$i] -> codigo ?></td>
-                            <td class="text-left pl-4"><?= $data['producto'][$i] -> nombre ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i] -> precio ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i] -> precio_proveedor ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i] -> cantidad ?></td>
+                            <td class="text-left pl-4"><?= $data[$i] -> codigo ?></td>
+                            <td class="text-left pl-4"><?= $data[$i] -> nombre ?></td>
+                            <td class="text-right pr-4"><?= $data[$i] -> precio ?></td>
+                            <td class="text-right pr-4"><?= $data[$i] -> precio_proveedor ?></td>
+                            <td class="text-right pr-4"><?= $data[$i] -> cantidad ?></td>
                             <td class="flex gap-3 p-2">
-                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data['producto'][$i] -> id ?>"
+                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data[$i] -> id ?>"
                                     class="rounded bg-red-400 p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -187,13 +187,13 @@ if($logueado -> tipo == 'Invitado'){
                         </tr>
                         <?php if(isset($data['productos'][$i + 1])){ ?>
                         <tr class="h-12">
-                            <td class="text-left pl-4"><?= $data['producto'][$i + 1] -> codigo ?></td>
-                            <td class="text-left pl-4"><?= $data['producto'][$i + 1] -> nombre ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i + 1] -> precio ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i + 1] -> precio_proveedor ?></td>
-                            <td class="text-right pr-4"><?= $data['producto'][$i + 1] -> cantidad ?></td>
+                            <td class="text-left pl-4"><?= $data[$i + 1] -> codigo ?></td>
+                            <td class="text-left pl-4"><?= $data[$i + 1] -> nombre ?></td>
+                            <td class="text-right pr-4"><?= $data[$i + 1] -> precio ?></td>
+                            <td class="text-right pr-4"><?= $data[$i + 1] -> precio_proveedor ?></td>
+                            <td class="text-right pr-4"><?= $data[$i + 1] -> cantidad ?></td>
                             <td class="flex gap-3 p-2">
-                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data['producto'][$i + 1] -> id ?>"
+                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data[$i + 1] -> id ?>"
                                     class="rounded bg-red-400 p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
