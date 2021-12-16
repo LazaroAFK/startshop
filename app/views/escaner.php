@@ -52,7 +52,7 @@ if(!estaLogueado()){
   </div>
 </div>
 
-    <div id="yourElement"></div>
+    <div id="yourElement" style="width: 0px;"></div>
     <script src="<?= URLROOT; ?>/js/quagga.min.js"></script>
     <script>
       Quagga.init({
