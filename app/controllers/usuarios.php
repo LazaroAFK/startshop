@@ -7,6 +7,11 @@ class usuarios extends controller{
     }
 
     public function index(){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         $usuarios = $this -> usuarioModel -> listarUsuarios();
         $this -> view('usuarios/index', $usuarios);
     }
@@ -66,6 +71,11 @@ class usuarios extends controller{
     }
 
     public function agregar(){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         // Inicialización para GET
         $data = [
             'usuario_uid' => '',

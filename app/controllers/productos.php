@@ -7,12 +7,22 @@ class productos extends controller{
     }
     
     public function index($limite = 10, $pagina = 1){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         $productos = $this -> productoModel -> listarProductos($limite, $pagina);
         console($productos);
         $this -> view('productos/index', $productos);
     }
 
     public function agregar(){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         // Inicialización para GET
         $data = [
             'id_inventario' => '',
@@ -70,6 +80,11 @@ class productos extends controller{
     }
 
     public function editar($nula, $id){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         // Inicialización para GET
         $data = [
             'msg_error' => ''
@@ -131,6 +146,11 @@ class productos extends controller{
     }
 
     public function eliminar($nula, $id){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         $producto = $this -> productoModel -> eliminar($id);
         redirigir('/productos');
     }

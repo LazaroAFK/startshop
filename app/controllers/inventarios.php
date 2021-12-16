@@ -7,12 +7,22 @@ class inventarios extends controller{
     }
     
     public function index($limite = 10, $pagina = 1){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         $inventarios = $this -> inventarioModel -> listarinventarios($limite, $pagina);
         console($inventarios);
         $this -> view('inventarios/index', $inventarios);
     }
 
     public function agregar(){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         // Inicialización para GET
         $data = [
             'fecha' => '',
@@ -70,6 +80,11 @@ class inventarios extends controller{
     }
 
     public function editar($nula, $id){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         // Inicialización para GET
         $data = [
             'msg_error' => ''
@@ -132,6 +147,11 @@ class inventarios extends controller{
     }
 
     public function eliminar($nula, $id){
+        if($_SESSION['usuario_tipo'] == 'Cajero'){
+            redirigir('/ventas');
+        }else if($_SESSION['usuario_tipo'] == 'Invitado'){ 
+            redirigir('/escaner');
+        }
         $inventario = $this -> inventarioModel -> eliminar($id);
         redirigir('/inventarios');
     }
