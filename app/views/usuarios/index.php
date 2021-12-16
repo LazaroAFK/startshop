@@ -45,7 +45,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                 <td class="text-left pl-4"><?= $data['usuarios'][$i] -> usuario_uid ?></td>
                 <td class="text-left pl-4"><?= $data['usuarios'][$i] -> usuario_nombre ?></td>
                 <td class="text-left pl-4"><?= $data['usuarios'][$i] -> usuario_email ?></td>
-                <td class="text-right pr-4"><?= $data['usuarios'][$i] -> id_tipo_usuario ?></td>
+                <td class="text-right pr-4"><?= $data['usuarios'][$i] -> tipo_usuario ?></td>
                 <td class="flex gap-3 p-2">
                   <a href="<?= URLROOT; ?>/usuarios/eliminar/<?= $data['usuarios'][$i] -> id ?>" class="rounded bg-red-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -64,7 +64,7 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                 <td class="text-left pl-4"><?= $data['usuarios'][$i + 1] -> usuario_uid ?></td>
                 <td class="text-left pl-4"><?= $data['usuarios'][$i + 1] -> usuario_nombre ?></td>
                 <td class="text-left pl-4"><?= $data['usuarios'][$i + 1] -> usuario_email ?></td>
-                <td class="text-right pr-4"><?= $data['usuarios'][$i + 1] -> id_tipo_usuario ?></td>
+                <td class="text-right pr-4"><?= $data['usuarios'][$i + 1] -> tipo_usuario ?></td>
                 <td class="flex gap-3 p-2">
                   <a href="<?= URLROOT; ?>/usuarios/eliminar/<?= $data['usuarios'][$i + 1] -> id ?>" class="rounded bg-red-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

@@ -46,7 +46,7 @@ class usuario{
 
     public function listarUsuarios(){
         // Consulta
-        $this -> db -> query('SELECT usuario_uid, usuario_nombre, usuario_email, b.descripcion FROM usuarios a LEFT JOIN tipo_usuario b ON a.id_tipo_usuario = b.id');
+        $this -> db -> query('SELECT usuario_uid, usuario_nombre, usuario_email, b.descripcion as tipo_usuario FROM usuarios a LEFT JOIN tipo_usuario b ON a.id_tipo_usuario = b.id');
 
         # Ejecución
         $registros['usuarios'] = $this -> db -> multiple();
