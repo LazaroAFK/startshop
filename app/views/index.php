@@ -26,15 +26,15 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </a>
         </div>
     </div>
-    <div class="flex-none mb-10 flex gap-4">
+    <div class="flex-none mb-10 flex flex-col gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Productos</label>
-        <div class="w-full h-96">
+        <div class="flex-none w-full h-96">
             <canvas id="myChart1" width="400" height="400"></canvas>
         </div>
     </div>
-    <div class="flex-none mb-10 flex gap-4">
+    <div class="flex-none mb-10 flex flex-col gap-4">
         <label for="" class="flex-shrink w-72 p-px font-medium">Inventarios</label>
-        <div class="w-full h-96">
+        <div class="flex-none w-full h-96">
             <canvas id="myChart2" width="400" height="400"></canvas>
         </div>
     </div>
