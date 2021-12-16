@@ -9,7 +9,7 @@ console($data);
 include_once(APPROOT . '/views/includes/header.inc.php');
 ?>
 <div class="flex-grow p-20 overflow-y-scroll flex flex-col gap-4">
-    <div class="flex-none flex flex-nowrap gap-2" style="max-width: 685px">
+    <div class="flex-none flex flex-nowrap gap-2">
         <a href="#" class="flex-none h-8 px-3 rounded bg-gray-200 flex items-center justify-center">
             <span class="font-medium">Gráficas</span>
         </a>
