@@ -48,20 +48,20 @@ action="<?= URLROOT ?>/usuarios/agregar" method="POST">
         <input name="usuario_uid" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
-        <label type="text" for="" class="p-px font-medium">Nombre</label>
-        <input name="usuario_nombre" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <label for="" class="p-px font-medium">Nombre</label>
+        <input name="usuario_nombre" type="text" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
-        <label type="email" for="" class="p-px font-medium">Correo Electrónico</label>
-        <input name="usuario_email" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <label for="" class="p-px font-medium">Correo Electrónico</label>
+        <input name="usuario_email" type="email" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
-        <label type="password" for="" class="p-px font-medium">Contraseña</label>
-        <input name="usuario_password" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <label for="" class="p-px font-medium">Contraseña</label>
+        <input name="usuario_password" type="password" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
-        <label type="password" for="" class="p-px font-medium">Confirmar Contraseña</label>
-        <input name="confirmacion_password" type="number" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
+        <label for="" class="p-px font-medium">Confirmar Contraseña</label>
+        <input name="confirmacion_password" type="password" class="flex-grow h-8 px-2 rounded border-2 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
       </div>
       <div class="flex flex-col">
         <label for="" class="w-72 p-px">Tipo Usuario</label>

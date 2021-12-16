@@ -49,7 +49,7 @@ class usuario{
         $this -> db -> query('SELECT usuario_uid, usuario_nombre, usuario_email, b.descripcion FROM usuarios a LEFT JOIN tipo_usuario b ON a.id_tipo_usuario = b.id');
 
         # Ejecución
-        $registros['productos'] = $this -> db -> multiple();
+        $registros['usuarios'] = $this -> db -> multiple();
 
         return $registros;
     }
