@@ -8,7 +8,7 @@ class escaner extends controller{
     
     public function index(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $escaner = $this -> escanerModel -> buscar();
+            $escaner = $this -> escanerModel -> buscar($_POST['codigo']);
         }
         $this -> view('escaner', $escaner);
     }
