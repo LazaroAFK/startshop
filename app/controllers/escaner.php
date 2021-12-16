@@ -3,10 +3,13 @@
 // Carga inicial
 class escaner extends controller{
     public function __construct(){
-        $this -> productoModel = $this -> model('scan');
+        $this -> escanerModel = $this -> model('scan');
     }
     
     public function index(){
-        $this -> view('escaner', $productos);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $escaner = $this -> escanerModel -> buscar();
+        }
+        $this -> view('escaner', $escaner);
     }
 }

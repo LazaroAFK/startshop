@@ -96,7 +96,7 @@
       </svg>
       <span>Facturación</span>
     </a> -->
-    <a href="<?= URLROOT; ?>/reportes/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+    <!-- <a href="<?= URLROOT; ?>/reportes/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
          <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697"></path>
@@ -108,7 +108,7 @@
          <path d="M8 15h3"></path>
       </svg>
       <span>Reportes</span>
-    </a>
+    </a> -->
     <a href="<?= URLROOT; ?>/usuarios/" class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
