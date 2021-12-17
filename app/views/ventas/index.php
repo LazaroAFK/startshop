@@ -218,12 +218,12 @@ console($data);
             <?php
               $total = 0; 
               foreach($data as $produto){
-                $total += $produto -> precio
+                $total += $produto -> precio;
               }
             ?>
             <div class="text-right">
                 <span class="text-4xl font-medium">Total:</span>
-                <span id="total" class="text-5xl font-medium text-red-600"> $ 52.70 </span>
+                <span id="total" class="text-5xl font-medium text-red-600"> $ <?= $total ?> </span>
             </div>
             <div class="text-right">
                 <span class="text-3xl font-medium">Efectivo: </span>
