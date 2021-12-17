@@ -5,6 +5,8 @@ if(!estaLogueado()){
 if($logueado -> tipo == 'Invitado'){ 
   redirigir('/escaner');
 }
+
+console($data);
 ?>
 <!DOCTYPE html>
 <html lang="en">
