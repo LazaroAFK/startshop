@@ -39,7 +39,7 @@ class venta{
         // Consulta
         $this -> db -> query("INSERT INTO venta(id_producto, id_ticket) VALUES(:id_producto, :id_ticket)");
 
-        $this -> db -> bind(':ticket_id', $ticket_id);
+        $this -> db -> bind(':id_ticket', $id_ticket);
         $this -> db -> bind(':id_producto', $id_producto);
         // Ejecución
         $this -> db -> execute();
