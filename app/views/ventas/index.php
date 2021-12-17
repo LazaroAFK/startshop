@@ -228,16 +228,11 @@ console($data);
                 <span class="text-3xl font-medium">Cambio:</span>
                 <span id="cambio" class="text-3xl font-medium"> $ 0.0 </span>
             </div>
-            <div class="flex-none flex gap-4 text-2xl">
-                <input type="submit"
-                    class="flex-grow h-16 px-2 rounded bg-gray-200 hover:bg-gray-300 outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"
-                    value="Cancelar" />
-                <form action="<?= URLROOT ?>/ventas/ticket" method="POST">
+            <form class="flex-none flex gap-4 text-2xl" action="<?= URLROOT ?>/ventas/ticket" method="POST">
                 <input type="submit"
                     class="flex-grow h-16 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"
                     value="Cobrar" />
-                </form>
-            </div>
+            </form>
         </div>
     </div>
     <form id="buscar" action="<?= URLROOT ?>/ventas" method="POST">
