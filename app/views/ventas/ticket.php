@@ -46,6 +46,11 @@ console($data);
           <span class="font-medium text-3xl">StarShop</span>
         </div>
         <div class="text-base leading-7 font-semibold">
+          <div class="flex gap-4 justify-end">
+            <div class=""><?= $data['ticket'] -> fecha ?></div>
+          </div>
+        </div>
+        <div class="text-base leading-7 font-semibold">
             <?php foreach($data['productos'] as $producto){ ?>
             <div class="flex gap-4 justify-end">
                 <div class=""><?= $producto -> codigo ?></div>
@@ -53,6 +58,7 @@ console($data);
                 <div class=""><?= $producto -> precio ?></div>
             </div>
             <?php } ?>
+        </div>
         <div class="text-base leading-7 font-semibold">
           <div class="flex gap-4 justify-end">
             <div class="">TOTAL:</div>

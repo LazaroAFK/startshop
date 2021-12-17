@@ -20,10 +20,9 @@ class venta{
 
     public function crearTicket($total){
         // Consulta
-        $this -> db -> query("INSERT INTO ticket(id_usuario, fecha, total, iva) VALUES(:id_usuario, :fecha, :total, :total * 0.16)");
+        $this -> db -> query("INSERT INTO ticket(id_usuario, fecha, total, iva) VALUES(:id_usuario, NOW(), :total, :total * 0.16)");
 
         $this -> db -> bind(':id_usuario', $_SESSION['usuario_id']);
-        $this -> db -> bind(':fecha', date("m/d/Y"));
         $this -> db -> bind(':total', $total);
         // Ejecución
         $registros = $this -> db -> execute();
@@ -35,7 +34,7 @@ class venta{
         return $result -> id;
     }
 
-    public function agregarProductoTicket($ticket_id, $id_producto){
+    public function agregarProductoTicket($id_ticket, $id_producto){
         // Consulta
         $this -> db -> query("INSERT INTO venta(id_producto, id_ticket) VALUES(:id_producto, :id_ticket)");
 

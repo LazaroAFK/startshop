@@ -49,8 +49,8 @@ class ventas extends controller{
             $_SESSION['lista_venta'] = [];
         }
         $ticket['ticket'] = $this -> ventaModel -> ticket($ticket_id);
-        $productos['productos'] = $this -> ventaModel -> productosPorTicket($ticket -> id);
+        $productos['productos'] = $this -> ventaModel -> productosPorTicket($ticket_id);
         $arreglo = array_merge($ticket, $productos);
-        $this -> view('ventas/ticket/' . $ticket_id, $arreglo);
+        $this -> view('ventas/ticket', $arreglo);
     }
 }
