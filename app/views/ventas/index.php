@@ -82,7 +82,7 @@ console($data);
                 </svg>
                 <span>Venta</span>
             </a>
-            <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+            <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -91,8 +91,8 @@ console($data);
                     <line x1="21" y1="21" x2="15" y2="15"></line>
                 </svg>
                 <span>Consultar precio</span>
-            </a>
-            <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+            </a> -->
+            <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash-banknote" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -103,8 +103,8 @@ console($data);
                     <line x1="6" y1="12" x2="6.01" y2="12"></line>
                 </svg>
                 <span>Ingreso y retiro</span>
-            </a>
-            <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+            </a> -->
+            <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cash" width="24" height="24"
                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                     stroke-linejoin="round">
@@ -114,8 +114,8 @@ console($data);
                     <path d="M17 9v-2a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v6a2 2 0 0 0 2 2h2"></path>
                 </svg>
                 <span>Corte de caja</span>
-            </a>
-            <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
+            </a> -->
+            <!-- <a class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt-refund" width="24"
                     height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -124,7 +124,7 @@ console($data);
                     <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
                 </svg>
                 <span>Devolución</span>
-            </a>
+            </a> -->
             <a href="<?= URLROOT; ?>/usuarios/logout"
                 class="flex-none h-12 p-2 rounded hover:bg-gray-200 hover:font-medium pl-5 flex items-center gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24"
