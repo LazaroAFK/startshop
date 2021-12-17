@@ -140,12 +140,12 @@ if($logueado -> tipo == 'Invitado'){
                 <div id="yourElement" class="h-full"></div>
             </div>
             <span class="text-4xl font-medium"> $
-                <?= count($data) > 0 ? $data[count($data) - 1] -> precio : 0 ?> </span>
+                <?= isset($data[count($data) - 1]) ? $data[count($data) - 1] -> precio : 0 ?> </span>
             <span class="text-2xl font-medium">
-                <?= count($data) > 0 ? $data[count($data) - 1] -> nombre : 'No se encontro' ?>
+                <?= isset($data[count($data) - 1]) ? $data[count($data) - 1] -> nombre : 'No se encontro' ?>
             </span>
             <span class="text-xl font-medium text-gray-600">
-                <?= count($data) > 0 ? $data[count($data) - 1] -> cantidad : 0 ?> en
+                <?= isset($data[count($data) - 1]) ? $data[count($data) - 1] -> cantidad : 0 ?> en
                 inventario </span>
         </div>
         <div class="flex-grow flex flex-col p-4 gap-4">

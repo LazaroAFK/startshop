@@ -10,7 +10,6 @@ class ventas extends controller{
     public function index(){
         $arreglo = $_SESSION['lista_venta'];
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $arreglo = $_SESSION['lista_venta'];
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
             $arreglo = array_push($escaner);
             $_SESSION['lista_venta'] = $arreglo;
