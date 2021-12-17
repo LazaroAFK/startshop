@@ -14,18 +14,23 @@ class ventas extends controller{
             console($escaner);
             array_push($arreglo, $escaner);
             console($arreglo);
-            $_SESSION['lista_venta'] = $arreglo;
+            $_SESSION['lista_venta'] = array_filter($arreglo);
             console($arreglo);
         }
 
-        $this -> view('ventas/index', $arreglo);
+        $this -> view('ventas/index', array_filter($arreglo));
     }
 
     public function eliminar($nula, $i){
         $arreglo = $_SESSION['lista_venta'];
-        unset($arreglo[$i]);
-        $_SESSION['lista_venta'] = $arreglo;
-        $this -> view('ventas/index', $arreglo);
+        $nuevo_arreglo = [];
+        foreach($arreglo as $dato){
+            if($dato != $arreglo[$i]){
+                array_push($nuevo_arreglo, $dato);
+            }
+        }
+        $_SESSION['lista_venta'] = $nuevo_arreglo;
+        $this -> view('ventas/index', array_filter($nuevo_arreglo));
     }
 
     public function cobrar(){
