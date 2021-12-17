@@ -23,7 +23,7 @@ class ventas extends controller{
 
     public function eliminar($nula, $i){
         $arreglo = $_SESSION['lista_venta'];
-        unset($array[$i]);
+        unset($arreglo[$i]);
         $_SESSION['lista_venta'] = $arreglo;
         $this -> view('ventas/index', $arreglo);
     }
