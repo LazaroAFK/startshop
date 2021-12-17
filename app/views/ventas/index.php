@@ -232,7 +232,7 @@ console($data);
                 <input type="submit"
                     class="flex-grow h-16 px-2 rounded bg-gray-200 hover:bg-gray-300 outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"
                     value="Cancelar" />
-                <form action="<?= URLROOT ?>/ventas/cobrar" method="POST">
+                <form action="<?= URLROOT ?>/ventas/ticket" method="POST">
                 <input type="submit"
                     class="flex-grow h-16 px-2 rounded bg-blue-500 hover:bg-blue-600 text-white outline-none focus:ring-2 focus:ring-blue-300 cursor-pointer"
                     value="Cobrar" />

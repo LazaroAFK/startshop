@@ -35,21 +35,20 @@ class ventas extends controller{
         $this -> view('ventas/index', $nuevo_arreglo);
     }
 
-    public function cobrar(){
-        $arreglo = $_SESSION['lista_venta'];
-        $total = 0; 
-        foreach($arreglo as $produto){
-          $total += $produto -> precio;
+    public function ticket($nula, $ticket_id = 0){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $arreglo = $_SESSION['lista_venta'];
+            $total = 0; 
+            foreach($arreglo as $produto){
+              $total += $produto -> precio;
+            }
+            $ticket_id = $this -> ventaModel -> crearTicket($total);
+            foreach($arreglo as $produto){
+                $this -> ventaModel -> agregarProductoTicket($ticket_id, $produto -> id);
+            }
+            $_SESSION['lista_venta'] = [];
         }
-        $ticket_id = $this -> ventaModel -> crearTicket($total);
-        foreach($arreglo as $produto){
-            $this -> ventaModel -> agregarProductoTicket($ticket_id, $produto -> id);
-        }
-        redirigir('ventas/ticket/' . $ticket_id);
-    }
-
-    public function ticket($nula, $id){
-        $ticket['ticket'] = $this -> ventaModel -> ticket($id);
+        $ticket['ticket'] = $this -> ventaModel -> ticket($ticket_id);
         $productos['productos'] = $this -> ventaModel -> productosPorTicket($ticket -> id);
         $arreglo = array_merge($ticket, $productos);
         $this -> view('ventas/ticket', $arreglo);
