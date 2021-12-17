@@ -5,24 +5,22 @@ class ventas extends controller{
     public function __construct(){
         $this -> ventaModel = $this -> model('venta');
     }
-
-    function _remove_empty_internal($value) {
-        return !empty($value) || $value === 0;
-    }
     
     public function index(){
         $arreglo = $_SESSION['lista_venta'];
         console($arreglo);
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
-            console($escaner);
-            array_push($arreglo, $escaner);
-            console($arreglo);
-            $_SESSION['lista_venta'] = array_filter($arreglo, '_remove_empty_internal');
-            console($arreglo);
+            if(!empty($escaner)){
+                console($escaner);
+                array_push($arreglo, $escaner);
+                console($arreglo);
+                $_SESSION['lista_venta'] = $arreglo;
+                console($arreglo);
+            }
         }
 
-        $this -> view('ventas/index', array_filter($arreglo, '_remove_empty_internal'));
+        $this -> view('ventas/index', $arreglo);
     }
 
     public function eliminar($nula, $i){
@@ -34,7 +32,7 @@ class ventas extends controller{
             }
         }
         $_SESSION['lista_venta'] = $nuevo_arreglo;
-        $this -> view('ventas/index', array_filter($nuevo_arreglo, '_remove_empty_internal'));
+        $this -> view('ventas/index', $nuevo_arreglo);
     }
 
     public function cobrar(){
