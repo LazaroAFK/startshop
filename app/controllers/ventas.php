@@ -21,6 +21,12 @@ class ventas extends controller{
         $this -> view('ventas/index', $arreglo);
     }
 
+    public function eliminar($nula, $i){
+        $arreglo = $_SESSION['lista_venta'];
+        unset($array[$i]);
+        $_SESSION['lista_venta'] = $arreglo;
+    }
+
     public function cobrar(){
         $_SESSION['lista_venta'] = [];
     }

@@ -158,8 +158,6 @@ console($data);
                             <th class="text-left pl-4">Código</th>
                             <th class="text-left pl-4">Nombre</th>
                             <th class="text-left pl-4">Precio</th>
-                            <th class="text-left pl-4">Costo</th>
-                            <th class="text-left pl-4">Cantidad</th>
                         </tr>
                     </thead>
                     <tbody class="h-14 text-xl">
@@ -168,10 +166,8 @@ console($data);
                             <td class="text-left pl-4"><?= $data[$i] -> codigo ?></td>
                             <td class="text-left pl-4"><?= $data[$i] -> nombre ?></td>
                             <td class="text-right pr-4"><?= $data[$i] -> precio ?></td>
-                            <td class="text-right pr-4"><?= $data[$i] -> precio_proveedor ?></td>
-                            <td class="text-right pr-4"><?= $data[$i] -> cantidad ?></td>
                             <td class="flex gap-3 p-2">
-                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data[$i] -> id ?>"
+                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $i ?>"
                                     class="rounded bg-red-400 p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -192,10 +188,8 @@ console($data);
                             <td class="text-left pl-4"><?= $data[$i + 1] -> codigo ?></td>
                             <td class="text-left pl-4"><?= $data[$i + 1] -> nombre ?></td>
                             <td class="text-right pr-4"><?= $data[$i + 1] -> precio ?></td>
-                            <td class="text-right pr-4"><?= $data[$i + 1] -> precio_proveedor ?></td>
-                            <td class="text-right pr-4"><?= $data[$i + 1] -> cantidad ?></td>
                             <td class="flex gap-3 p-2">
-                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $data[$i + 1] -> id ?>"
+                                <a href="<?= URLROOT; ?>/ventas/eliminar/<?= $i ?>"
                                     class="rounded bg-red-400 p-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
