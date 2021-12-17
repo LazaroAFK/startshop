@@ -13,7 +13,7 @@ class ventas extends controller{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
             console($escaner);
-            $arreglo = array_push($escaner);
+            array_push($arreglo, $escaner);
             console($arreglo);
             $_SESSION['lista_venta'] = $arreglo;
             console($arreglo);
