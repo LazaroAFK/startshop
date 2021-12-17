@@ -45,7 +45,7 @@ if(!estaLogueado()){
           <span class="font-medium text-3xl">StarShop</span>
         </div>
         <div class="text-base leading-7 font-semibold">
-            <?php foreach($data['producto'] as $producto){ ?>
+            <?php foreach($data['productos'] as $producto){ ?>
             <div class="flex gap-4 justify-end">
                 <div class=""><?= $producto -> codigo ?></div>
                 <div class=""><?= $producto -> nombre ?></div>
@@ -55,11 +55,11 @@ if(!estaLogueado()){
         <div class="text-base leading-7 font-semibold">
           <div class="flex gap-4 justify-end">
             <div class="">TOTAL:</div>
-            <div class="">$<?= $data['producto'] -> total ?></div>
+            <div class="">$<?= $data['ticket'] -> total ?></div>
           </div>
           <div class="flex gap-4 justify-end">
             <div class="">IVA:</div>
-            <div class="">$<?= $data['producto'] -> iva ?></div>
+            <div class="">$<?= $data['ticket'] -> iva ?></div>
           </div>
         </div>
       </div>
