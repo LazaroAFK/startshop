@@ -26,9 +26,9 @@ class ventas extends controller{
     public function eliminar($nula, $i){
         $arreglo = $_SESSION['lista_venta'];
         $nuevo_arreglo = [];
-        foreach($arreglo as $dato){
-            if($dato != $arreglo[$i]){
-                array_push($nuevo_arreglo, $dato);
+        for($j = 0; $j < count($arreglo); $j++){
+            if($j != $i){
+                array_push($nuevo_arreglo, $arreglo[$j]);
             }
         }
         $_SESSION['lista_venta'] = $nuevo_arreglo;
@@ -36,6 +36,22 @@ class ventas extends controller{
     }
 
     public function cobrar(){
-        $_SESSION['lista_venta'] = [];
+        $arreglo = $_SESSION['lista_venta'];
+        $total = 0; 
+        foreach($arreglo as $produto){
+          $total += $produto -> precio;
+        }
+        $ticket_id = $this -> ventaModel -> crearTicket($total);
+        foreach($arreglo as $produto){
+            $this -> ventaModel -> agregarProductoTicket($ticket_id, $produto -> id);
+        }
+        redirigir('ventas/ticket/' . $ticket_id);
+    }
+
+    public function ticket($nula, $id){
+        $ticket['ticket'] = $this -> ventaModel -> ticket($id);
+        $productos['productos'] = $this -> ventaModel -> productosPorTicket($ticket -> id);
+        $arreglo = array_merge($ticket, $productos);
+        $this -> view('ventas/ticket', $arreglo);
     }
 }
