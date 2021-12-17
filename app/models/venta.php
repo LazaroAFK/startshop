@@ -15,6 +15,6 @@ class venta{
         // Ejecución
         $registros = $this -> db -> unico();
 
-        return $registros;
+        return [$registros];
     }
 }
