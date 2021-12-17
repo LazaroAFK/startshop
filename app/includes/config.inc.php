@@ -11,7 +11,8 @@ define('DBPASSWORD', '8500d8f6');
 // Apoyo para acceso publicos y privados
 
 // Publica (virtual host)
-define('URLROOT', 'https://startshop.amigable.dev');
+// define('URLROOT', 'https://startshop.amigable.dev');
+define('URLROOT', 'http://pw20213v.mx/');
 
 // Privada
 define('APPROOT', dirname(dirname(__FILE__)));

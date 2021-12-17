@@ -13,7 +13,7 @@ class ventas extends controller{
             $arreglo = $_SESSION['lista_venta'];
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
             $arreglo = array_push($arreglo, $escaner);
-            $_SESSION['lista_venta'] = $arreglo
+            $_SESSION['lista_venta'] = $arreglo;
         }
 
         $this -> view('ventas/index', $arreglo);
