@@ -41,22 +41,22 @@ include_once(APPROOT . '/views/includes/header.inc.php');
             </tr>
         </thead>
         <tbody class="h-14 text-xl">
-            <?php for($i = 0; $i < count($data); $i += 2){ ?>
+            <?php for($i = 0; $i < count($data['productos']); $i += 2){ ?>
             <tr class="h-12 bg-gray-200">
-                <td class="text-left pl-4"><?= $data[$i] -> codigo ?></td>
-                <td class="text-left pl-4"><?= $data[$i] -> nombre ?></td>
-                <td class="text-right pr-4"><?= $data[$i] -> precio ?></td>
-                <td class="text-right pr-4"><?= $data[$i] -> precio_proveedor ?></td>
-                <td class="text-right pr-4"><?= $data[$i] -> cantidad ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i] -> codigo ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i] -> nombre ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> precio ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> precio_proveedor ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i] -> cantidad ?></td>
                 <td class="flex gap-3 p-2">
-                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data[$i] -> id ?>" class="rounded bg-blue-400 p-1">
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i] -> id ?>" class="rounded bg-blue-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
                     <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
                   </svg>
                   </a>
-                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data[$i] -> id ?>" class="rounded bg-red-400 p-1">
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i] -> id ?>" class="rounded bg-red-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <line x1="4" y1="7" x2="20" y2="7"></line>
@@ -68,22 +68,22 @@ include_once(APPROOT . '/views/includes/header.inc.php');
                   </a>
                 </td>
             </tr>
-            <?php if(isset($data[$i + 1])){ ?>
+            <?php if(isset($data['productos'][$i + 1])){ ?>
             <tr class="h-12">
-                <td class="text-left pl-4"><?= $data[$i + 1] -> codigo ?></td>
-                <td class="text-left pl-4"><?= $data[$i + 1] -> nombre ?></td>
-                <td class="text-right pr-4"><?= $data[$i + 1] -> precio ?></td>
-                <td class="text-right pr-4"><?= $data[$i + 1] -> precio_proveedor ?></td>
-                <td class="text-right pr-4"><?= $data[$i + 1] -> cantidad ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> codigo ?></td>
+                <td class="text-left pl-4"><?= $data['productos'][$i + 1] -> nombre ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> precio_proveedor ?></td>
+                <td class="text-right pr-4"><?= $data['productos'][$i + 1] -> cantidad ?></td>
                 <td class="flex gap-3 p-2">
-                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data[$i + 1] -> id ?>" class="rounded bg-blue-400 p-1">
+                  <a href="<?= URLROOT; ?>/productos/editar/<?= $data['productos'][$i + 1] -> id ?>" class="rounded bg-blue-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
                     <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
                   </svg>
                   </a>
-                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data[$i + 1] -> id ?>" class="rounded bg-red-400 p-1">
+                  <a href="<?= URLROOT; ?>/productos/eliminar/<?= $data['productos'][$i + 1] -> id ?>" class="rounded bg-red-400 p-1">
                   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                     <line x1="4" y1="7" x2="20" y2="7"></line>
