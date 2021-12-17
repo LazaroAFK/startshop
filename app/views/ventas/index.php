@@ -215,18 +215,24 @@ console($data);
                     </tbody>
                 </table>
             </div>
+            <?php
+              $total = 0; 
+              foreach($data as $produto){
+                $total += $produto -> precio
+              }
+            ?>
             <div class="text-right">
                 <span class="text-4xl font-medium">Total:</span>
-                <span class="text-5xl font-medium text-red-600"> $ 52.70 </span>
+                <span id="total" class="text-5xl font-medium text-red-600"> $ 52.70 </span>
             </div>
             <div class="text-right">
                 <span class="text-3xl font-medium">Efectivo: </span>
-                <input
+                <input id="efectivo"
                     class="flex-grow w-80 h-14 px-2 text-right text-4xl font-medium rounded border-2 border-gray-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-300" />
             </div>
             <div class="text-right">
                 <span class="text-3xl font-medium">Cambio:</span>
-                <span class="text-3xl font-medium"> $ 0.30 </span>
+                <span id="cambio" class="text-3xl font-medium"> $ 0.30 </span>
             </div>
             <div class="flex-none flex gap-4 text-2xl">
                 <input type="submit"
@@ -244,6 +250,14 @@ console($data);
 
     <script src="<?= URLROOT; ?>/js/quagga.min.js"></script>
     <script>
+      efectivo.oninput = () => {
+        try {
+          cambio.innerHTML = `$ ${+total.innerText.replace(/\$/g, '') - efectivo.value}`
+        } catch (error) {
+          cambio.innerHTML = `$ 0.0`
+        }
+      }
+
     Quagga.init({
         inputStream: {
             name: "Live",

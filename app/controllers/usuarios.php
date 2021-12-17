@@ -56,6 +56,7 @@ class usuarios extends controller{
                     console($logueado);
 
                     if($logueado -> tipo == 'Cajero'){
+                        $_SESSION['lista_venta'] = [];
                         redirigir('/ventas');
                     }else if($logueado -> tipo == 'Invitado'){ 
                         redirigir('/escaner');
