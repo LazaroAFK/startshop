@@ -226,7 +226,7 @@ console($data);
             </div>
             <div class="text-right">
                 <span class="text-3xl font-medium">Cambio:</span>
-                <span id="cambio" class="text-3xl font-medium"> $ 0.30 </span>
+                <span id="cambio" class="text-3xl font-medium"> $ 0.0 </span>
             </div>
             <div class="flex-none flex gap-4 text-2xl">
                 <input type="submit"
