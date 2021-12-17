@@ -3,7 +3,7 @@
 // Carga inicial
 class ventas extends controller{
     public function __construct(){
-        // $_SESSION['lista_venta'] = [];
+        $_SESSION['lista_venta'] = [];
         $this -> ventaModel = $this -> model('venta');
     }
     
@@ -11,8 +11,8 @@ class ventas extends controller{
         $escaner = [];
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $escaner = $this -> ventaModel -> buscar($_POST['codigo']);
-            // $escaner = array_merge($_SESSION['lista_venta'], $escaner);
-            // $_SESSION['lista_venta'] = $escaner
+            $escaner = array_merge($_SESSION['lista_venta'], $escaner);
+            $_SESSION['lista_venta'] = $escaner
         }
 
         $this -> view('ventas/index', $escaner);
