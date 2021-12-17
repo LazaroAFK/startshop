@@ -3,7 +3,7 @@
 // Carga inicial
 class ventas extends controller{
     public function __construct(){
-        $_SESSION['lista_venta'] = [];
+        // $_SESSION['lista_venta'] = [];
         $this -> ventaModel = $this -> model('venta');
     }
     
@@ -20,6 +20,6 @@ class ventas extends controller{
     }
 
     public function cobrar(){
-        $_SESSION['lista_venta'] = [];
+        // $_SESSION['lista_venta'] = [];
     }
 }
