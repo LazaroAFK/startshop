@@ -187,7 +187,7 @@ console($data);
                                 </a>
                             </td>
                         </tr>
-                        <?php if(isset($data['productos'][$i + 1])){ ?>
+                        <?php if(isset($data[$i + 1])){ ?>
                         <tr class="h-12">
                             <td class="text-left pl-4"><?= $data[$i + 1] -> codigo ?></td>
                             <td class="text-left pl-4"><?= $data[$i + 1] -> nombre ?></td>
@@ -252,7 +252,7 @@ console($data);
     <script>
       efectivo.oninput = () => {
         try {
-          cambio.innerHTML = `$ ${+total.innerText.replace(/\$/g, '') - efectivo.value}`
+          cambio.innerHTML = `$ ${+efectivo.value - (+total.innerText.replace(/\$/g, ''))}`
         } catch (error) {
           cambio.innerHTML = `$ 0.0`
         }
