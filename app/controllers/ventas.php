@@ -5,6 +5,10 @@ class ventas extends controller{
     public function __construct(){
         $this -> ventaModel = $this -> model('venta');
     }
+
+    function _remove_empty_internal($value) {
+        return !empty($value) || $value === 0;
+    }
     
     public function index(){
         $arreglo = $_SESSION['lista_venta'];
@@ -14,11 +18,11 @@ class ventas extends controller{
             console($escaner);
             array_push($arreglo, $escaner);
             console($arreglo);
-            $_SESSION['lista_venta'] = array_filter($arreglo);
+            $_SESSION['lista_venta'] = array_filter($arreglo, '_remove_empty_internal');
             console($arreglo);
         }
 
-        $this -> view('ventas/index', array_filter($arreglo));
+        $this -> view('ventas/index', array_filter($arreglo, '_remove_empty_internal'));
     }
 
     public function eliminar($nula, $i){
@@ -30,7 +34,7 @@ class ventas extends controller{
             }
         }
         $_SESSION['lista_venta'] = $nuevo_arreglo;
-        $this -> view('ventas/index', array_filter($nuevo_arreglo));
+        $this -> view('ventas/index', array_filter($nuevo_arreglo, '_remove_empty_internal'));
     }
 
     public function cobrar(){
